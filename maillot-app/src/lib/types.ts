@@ -1,5 +1,6 @@
-// Types partagés côté front, indépendants de Prisma pour l'instant
-// (données mock en attendant la connexion Supabase — voir src/lib/mock-data.ts)
+// Types partagés côté front. Formes volontairement simples (indépendantes des
+// types générés par Prisma) — voir src/lib/products.ts pour le mapping depuis
+// les modèles Prisma (Decimal -> number, etc.)
 
 export type ProductCategory = "MAILLOT" | "EQUIPEMENT";
 export type EquipmentSubtype = "CHAUSSURES" | "BALLONS" | "ACCESSOIRES" | "AUTRE";

@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { mockProducts } from "@/lib/mock-data";
+import { getAllProducts } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 
-export default function HomePage() {
-  const featured = mockProducts.slice(0, 4);
+export default async function HomePage() {
+  const products = await getAllProducts();
+  const featured = products.slice(0, 4);
 
   return (
     <div>

@@ -1,10 +1,12 @@
-import { mockProducts } from "@/lib/mock-data";
+import { getAllProducts } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 
 // Espace admin (5.6) — placeholder non protégé pour l'instant.
 // TODO : brancher Supabase Auth (email/mot de passe) pour restreindre l'accès à /admin
 // avant toute mise en production (voir SPEC.md §6).
-export default function AdminPage() {
+export default async function AdminPage() {
+  const products = await getAllProducts();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <h1 className="text-2xl font-bold mb-1">Espace admin</h1>
@@ -13,7 +15,7 @@ export default function AdminPage() {
       </p>
 
       <section className="mb-10">
-        <h2 className="font-semibold mb-3">Catalogue ({mockProducts.length} produits)</h2>
+        <h2 className="font-semibold mb-3">Catalogue ({products.length} produits)</h2>
         <div className="overflow-x-auto rounded-lg border border-black/10 bg-white">
           <table className="w-full text-sm">
             <thead className="bg-neutral-50 text-left text-black/50">
@@ -25,7 +27,7 @@ export default function AdminPage() {
               </tr>
             </thead>
             <tbody>
-              {mockProducts.map((p) => {
+              {products.map((p) => {
                 const stock = p.variants.reduce((s, v) => s + v.stock, 0);
                 return (
                   <tr key={p.id} className="border-t border-black/5">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { mockProducts } from "@/lib/mock-data";
+import { getAllProducts, getProductsByCategory } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import type { ProductCategory } from "@/lib/types";
 
@@ -15,8 +15,8 @@ export default async function CataloguePage({
   const activeCategory = category as ProductCategory | undefined;
 
   const products = activeCategory
-    ? mockProducts.filter((p) => p.category === activeCategory)
-    : mockProducts;
+    ? await getProductsByCategory(activeCategory)
+    : await getAllProducts();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">

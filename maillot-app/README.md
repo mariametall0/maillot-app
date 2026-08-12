@@ -10,10 +10,10 @@ Voir [`../SPEC.md`](../SPEC.md) pour la spécification complète du produit.
 
 ## État actuel
 
-Le catalogue, le panier, le tunnel de commande et l'espace admin sont en place avec des
-**données mock** (`src/lib/mock-data.ts`), pour développer l'UI sans dépendre d'un projet
-Supabase déjà configuré. Rien n'est encore persisté en base — voir "Prochaines étapes"
-ci-dessous pour brancher la vraie base de données.
+Le catalogue, la fiche produit, l'accueil et l'espace admin lisent désormais de vraies
+données Postgres via Prisma (`src/lib/products.ts`), sur un projet Supabase déjà connecté et
+migré. Le panier reste client-side (localStorage) et le tunnel de commande n'écrit pas encore
+en base — voir "Prochaines étapes" ci-dessous.
 
 ## Setup
 
@@ -79,23 +79,24 @@ src/
   components/                 composants partagés (header, ...)
   lib/
     types.ts                  types partagés (Product, CartItem, ...)
-    mock-data.ts               données de démonstration
+    products.ts                 requêtes Prisma -> Product (catalogue)
     cart-context.tsx           état panier (React Context + localStorage)
-    prisma.ts                  client Prisma singleton
+    cart-store.ts               store panier externe (localStorage), via useSyncExternalStore
+    prisma.ts                  client Prisma singleton (adapter @prisma/adapter-pg)
     format.ts                  formatage prix (MRU)
 prisma/
   schema.prisma                modèle de données (voir SPEC.md §6)
+  seed.ts                      données de démonstration (npm run db:seed)
 prisma.config.ts                config connexion DB pour le CLI Prisma (migrate/generate)
 ```
 
-## Prochaines étapes (non faites dans ce scaffold initial)
+## Prochaines étapes
 
-- [ ] Brancher les pages catalogue/produit sur Prisma au lieu de `mock-data.ts`
-- [ ] Créer les routes API (`/api/orders`, `/api/products`, ...) pour la création de
-      commande, la mise à jour de stock et le suivi par téléphone
+- [ ] Créer les routes API (`/api/orders`, ...) pour que le tunnel de commande écrive
+      vraiment en base (création commande, décrément de stock, suivi par téléphone)
 - [ ] Protéger `/admin` avec Supabase Auth (email + mot de passe, admin unique)
-- [ ] Upload de photos vers Supabase Storage depuis l'espace admin
+- [ ] Upload de photos vers Supabase Storage depuis l'espace admin (remplacer les
+      images placeholder SVG générées par `prisma/seed.ts`)
 - [ ] Intégration paiement mobile (Bankily / Masrvi / Sedad) — voir SPEC.md §5.4 et §8
       pour les points à valider
 - [ ] Notifications SMS/WhatsApp sur changement de statut (optionnel V1)
-- [ ] Script de seed Prisma pour remplacer `mock-data.ts` en base réelle
