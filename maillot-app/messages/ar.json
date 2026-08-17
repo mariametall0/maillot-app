@@ -1,0 +1,126 @@
+{
+  "Metadata": {
+    "title": "MaillotF — قمصان الأندية ومعدات رياضية",
+    "description": "بيع قمصان الأندية القابلة للتخصيص (طباعة الاسم والرقم) والمعدات الرياضية."
+  },
+  "Nav": {
+    "catalogue": "الكتالوج",
+    "jerseys": "القمصان",
+    "equipment": "المعدات",
+    "tracking": "تتبع الطلب",
+    "cart": "السلة"
+  },
+  "Home": {
+    "heroTitle": "قميصك، اسمك، رقمك",
+    "heroSubtitle": "قمصان أندية قابلة للتخصيص ومعدات رياضية، تُسلَّم في نواكشوط. الدفع عبر الهاتف (بنكيلي، مصرفي، سداد) أو الدفع عند الاستلام.",
+    "cta": "تصفح الكتالوج",
+    "featured": "وصل حديثًا"
+  },
+  "Catalogue": {
+    "title": "الكتالوج",
+    "subtitle": "قمصان ومعدات رياضية.",
+    "all": "الكل",
+    "jerseys": "القمصان",
+    "equipment": "المعدات",
+    "outOfStock": "نفدت الكمية"
+  },
+  "Product": {
+    "sizeType": {
+      "taille": "المقاس",
+      "pointure": "مقاس الحذاء"
+    },
+    "stockLow": "لم يتبقَّ سوى {count} في المخزون",
+    "personalizeCheckbox": "تخصيص (طباعة الاسم والرقم) — \u200E+{price}",
+    "nameLabel": "الاسم",
+    "namePlaceholder": "مثال: باري",
+    "numberLabel": "الرقم (0–99)",
+    "numberPlaceholder": "مثال: 10",
+    "numberInvalid": "يجب أن يكون الرقم بين 0 و99.",
+    "previewLabel": "معاينة الطباعة",
+    "previewNamePlaceholder": "الاسم",
+    "previewNumberPlaceholder": "الرقم",
+    "personalizationNote": "مدة تحضير أطول للمنتجات المخصصة — تبدأ الطباعة بعد تأكيد الدفع.",
+    "addToCart": "أضف إلى السلة",
+    "outOfStock": "نفدت الكمية",
+    "added": "أُضيف إلى السلة ✅",
+    "viewCart": "عرض السلة"
+  },
+  "Cart": {
+    "title": "السلة",
+    "emptyTitle": "سلتك فارغة",
+    "emptySubtitle": "تصفح الكتالوج للعثور على قميصك.",
+    "viewCatalogue": "تصفح الكتالوج",
+    "sizeLabel": "المقاس: {size}",
+    "personalizationLabel": "الطباعة: {name} · {number}",
+    "qtyLabel": "الكمية",
+    "remove": "إزالة",
+    "subtotalNote": "المجموع الفرعي (يُحسب التوصيل عند إتمام الطلب)",
+    "checkout": "إتمام الطلب"
+  },
+  "Checkout": {
+    "emptyTitle": "سلتك فارغة",
+    "backToCatalogue": "العودة إلى الكتالوج",
+    "title": "إتمام الطلب",
+    "contactHeading": "بياناتك",
+    "nameLabel": "الاسم",
+    "namePlaceholder": "مثال: محمد ولد أحمد",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "مثال: 22345678",
+    "phoneInvalid": "يُتوقع رقم مكوّن من 8 أرقام.",
+    "addressHeading": "عنوان التوصيل",
+    "optional": "(اختياري)",
+    "addressNoteRequired": "مطلوب للدفع عبر الهاتف: يبدأ تحضير الطلب فور تأكيد الدفع.",
+    "addressNoteOptional": "بالنسبة للدفع عند الاستلام، سنتصل بك لتأكيد الطلب وتحديد العنوان إذا لزم الأمر.",
+    "cityLabel": "المدينة",
+    "districtLabel": "الحي",
+    "paymentHeading": "طريقة الدفع",
+    "paymentDelivery": "الدفع عند الاستلام",
+    "subtotal": "المجموع الفرعي",
+    "delivery": "التوصيل",
+    "total": "المجموع",
+    "submitting": "جارٍ الإرسال...",
+    "submit": "تأكيد الطلب"
+  },
+  "Confirmation": {
+    "title": "تم إرسال الطلب!",
+    "body1": "شكرًا لطلبك. يمكنك تتبع حالته في أي وقت باستخدام رقم هاتفك.",
+    "body2": "بالنسبة للدفع عند الاستلام، سنعاود الاتصال بك للتأكيد قبل بدء التحضير.",
+    "trackOrder": "تتبع طلبي",
+    "continueShopping": "متابعة التسوق"
+  },
+  "Tracking": {
+    "title": "تتبع طلبي",
+    "subtitle": "أدخل رقم الهاتف المستخدم عند الطلب — لا حاجة لحساب.",
+    "phonePlaceholder": "مثال: 22345678",
+    "searching": "...",
+    "search": "بحث",
+    "notFound": "لم يُعثر على أي طلب بهذا الرقم حاليًا — سيُفعَّل التتبع الفوري بمجرد ربط الكتالوج والطلبات بقاعدة البيانات (Supabase).",
+    "statusesHeading": "الحالات الممكنة:",
+    "status": {
+      "RECUE": "مستلمة",
+      "EN_ATTENTE_CONFIRMATION_CLIENT": "بانتظار التأكيد (سنتصل بك)",
+      "CONFIRMEE": "مؤكدة",
+      "EN_PREPARATION": "قيد التحضير",
+      "EXPEDIEE": "تم الشحن",
+      "LIVREE": "تم التسليم",
+      "ANNULEE": "ملغاة"
+    }
+  },
+  "Admin": {
+    "title": "لوحة الإدارة",
+    "unprotectedWarning": "⚠️ صفحة غير محمية — يجب تأمينها عبر Supabase Auth قبل الإطلاق.",
+    "catalogueHeading": "الكتالوج ({count} منتجًا)",
+    "product": "المنتج",
+    "category": "الفئة",
+    "basePrice": "السعر الأساسي",
+    "totalStock": "إجمالي المخزون",
+    "outOfStock": "نفدت الكمية",
+    "categoryJersey": "قميص",
+    "categoryEquipment": "معدات",
+    "ordersHeading": "الطلبات",
+    "ordersEmpty": "لا توجد طلبات حتى الآن — ستُفعَّل قائمة الطلبات (مع الفرز حسب الحالة، تغيير الحالة، عرض المدفوعات والإحصائيات) بمجرد ربط قاعدة بيانات Supabase."
+  },
+  "Footer": {
+    "tagline": "MaillotF — نواكشوط، موريتانيا"
+  }
+}

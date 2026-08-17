@@ -1,0 +1,126 @@
+{
+  "Metadata": {
+    "title": "MaillotF — Maillots & équipements de sport",
+    "description": "Vente de maillots de clubs personnalisables (flocage) et d'équipements de sport."
+  },
+  "Nav": {
+    "catalogue": "Catalogue",
+    "jerseys": "Maillots",
+    "equipment": "Équipements",
+    "tracking": "Suivi de commande",
+    "cart": "Panier"
+  },
+  "Home": {
+    "heroTitle": "Ton maillot, ton nom, ton numéro",
+    "heroSubtitle": "Maillots de clubs personnalisables et équipements de sport, livrés à Nouakchott. Paiement mobile (Bankily, Masrvi, Sedad) ou à la livraison.",
+    "cta": "Voir le catalogue",
+    "featured": "Nouveautés"
+  },
+  "Catalogue": {
+    "title": "Catalogue",
+    "subtitle": "Maillots et équipements de sport.",
+    "all": "Tout",
+    "jerseys": "Maillots",
+    "equipment": "Équipements",
+    "outOfStock": "Rupture de stock"
+  },
+  "Product": {
+    "sizeType": {
+      "taille": "Taille",
+      "pointure": "Pointure"
+    },
+    "stockLow": "Plus que {count} en stock",
+    "personalizeCheckbox": "Personnaliser (flocage nom + numéro) — +{price}",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Ex : BARRY",
+    "numberLabel": "Numéro (0–99)",
+    "numberPlaceholder": "Ex : 10",
+    "numberInvalid": "Le numéro doit être entre 0 et 99.",
+    "previewLabel": "Aperçu du flocage",
+    "previewNamePlaceholder": "NOM",
+    "previewNumberPlaceholder": "N°",
+    "personalizationNote": "Délai de préparation plus long pour les articles personnalisés — le flocage démarre après confirmation du paiement.",
+    "addToCart": "Ajouter au panier",
+    "outOfStock": "Rupture de stock",
+    "added": "Ajouté au panier ✅",
+    "viewCart": "Voir le panier"
+  },
+  "Cart": {
+    "title": "Panier",
+    "emptyTitle": "Ton panier est vide",
+    "emptySubtitle": "Parcours le catalogue pour trouver ton maillot.",
+    "viewCatalogue": "Voir le catalogue",
+    "sizeLabel": "Taille : {size}",
+    "personalizationLabel": "Flocage : {name} · {number}",
+    "qtyLabel": "Qté",
+    "remove": "Retirer",
+    "subtotalNote": "Sous-total (livraison calculée à la commande)",
+    "checkout": "Passer commande"
+  },
+  "Checkout": {
+    "emptyTitle": "Ton panier est vide",
+    "backToCatalogue": "Retourner au catalogue",
+    "title": "Finaliser la commande",
+    "contactHeading": "Tes coordonnées",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Ex : Mohamed Ould Ahmed",
+    "phoneLabel": "Numéro de téléphone",
+    "phonePlaceholder": "Ex : 22345678",
+    "phoneInvalid": "Numéro à 8 chiffres attendu.",
+    "addressHeading": "Adresse de livraison",
+    "optional": "(optionnelle)",
+    "addressNoteRequired": "Requise pour le paiement mobile : la commande part en préparation dès le paiement validé.",
+    "addressNoteOptional": "Pour le paiement à la livraison, on te rappelle pour confirmer la commande et préciser l'adresse si besoin.",
+    "cityLabel": "Ville",
+    "districtLabel": "Quartier",
+    "paymentHeading": "Mode de paiement",
+    "paymentDelivery": "Paiement à la livraison",
+    "subtotal": "Sous-total",
+    "delivery": "Livraison",
+    "total": "Total",
+    "submitting": "Envoi...",
+    "submit": "Confirmer la commande"
+  },
+  "Confirmation": {
+    "title": "Commande envoyée !",
+    "body1": "Merci pour ta commande. Tu peux suivre son statut à tout moment avec ton numéro de téléphone.",
+    "body2": "Pour le paiement à la livraison, on te rappelle pour confirmer avant préparation.",
+    "trackOrder": "Suivre ma commande",
+    "continueShopping": "Continuer mes achats"
+  },
+  "Tracking": {
+    "title": "Suivre ma commande",
+    "subtitle": "Entre le numéro de téléphone utilisé lors de la commande — pas besoin de compte.",
+    "phonePlaceholder": "Ex : 22345678",
+    "searching": "...",
+    "search": "Rechercher",
+    "notFound": "Aucune commande trouvée pour ce numéro pour l'instant — le suivi en temps réel sera actif dès que le catalogue et les commandes seront connectés à la base de données (Supabase).",
+    "statusesHeading": "Statuts possibles :",
+    "status": {
+      "RECUE": "Reçue",
+      "EN_ATTENTE_CONFIRMATION_CLIENT": "En attente de confirmation (on va t'appeler)",
+      "CONFIRMEE": "Confirmée",
+      "EN_PREPARATION": "En préparation",
+      "EXPEDIEE": "Expédiée",
+      "LIVREE": "Livrée",
+      "ANNULEE": "Annulée"
+    }
+  },
+  "Admin": {
+    "title": "Espace admin",
+    "unprotectedWarning": "⚠️ Page non protégée — à sécuriser avec Supabase Auth avant mise en ligne.",
+    "catalogueHeading": "Catalogue ({count} produits)",
+    "product": "Produit",
+    "category": "Catégorie",
+    "basePrice": "Prix de base",
+    "totalStock": "Stock total",
+    "outOfStock": "Rupture",
+    "categoryJersey": "Maillot",
+    "categoryEquipment": "Équipement",
+    "ordersHeading": "Commandes",
+    "ordersEmpty": "Aucune commande pour l'instant — la liste des commandes (avec filtres par statut, changement de statut, vue des paiements et statistiques) sera branchée une fois la base de données Supabase connectée."
+  },
+  "Footer": {
+    "tagline": "MaillotF — Nouakchott, Mauritanie"
+  }
+}

@@ -1,19 +1,20 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 
-// Statuts définis en SPEC.md §5.5
-const STATUS_LABELS: Record<string, string> = {
-  RECUE: "Reçue",
-  EN_ATTENTE_CONFIRMATION_CLIENT: "En attente de confirmation (on va t'appeler)",
-  CONFIRMEE: "Confirmée",
-  EN_PREPARATION: "En préparation",
-  EXPEDIEE: "Expédiée",
-  LIVREE: "Livrée",
-  ANNULEE: "Annulée",
-};
+const STATUS_KEYS = [
+  "RECUE",
+  "EN_ATTENTE_CONFIRMATION_CLIENT",
+  "CONFIRMEE",
+  "EN_PREPARATION",
+  "EXPEDIEE",
+  "LIVREE",
+  "ANNULEE",
+] as const;
 
 export default function SuiviPage() {
+  const t = useTranslations("Tracking");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
@@ -30,17 +31,15 @@ export default function SuiviPage() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-12">
-      <h1 className="text-2xl font-bold mb-2">Suivre ma commande</h1>
-      <p className="text-black/60 mb-6">
-        Entre le numéro de téléphone utilisé lors de la commande — pas besoin de compte.
-      </p>
+      <h1 className="text-2xl font-bold mb-2">{t("title")}</h1>
+      <p className="text-black/60 mb-6">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           inputMode="numeric"
-          placeholder="Ex : 22345678"
+          placeholder={t("phonePlaceholder")}
           required
           className="flex-1 rounded-md border border-black/15 px-3 py-2"
         />
@@ -49,22 +48,21 @@ export default function SuiviPage() {
           disabled={loading}
           className="rounded-md bg-blue-700 text-white font-semibold px-5 py-2 disabled:opacity-40"
         >
-          {loading ? "..." : "Rechercher"}
+          {loading ? t("searching") : t("search")}
         </button>
       </form>
 
       {searched && (
         <div className="mt-8 rounded-lg border border-black/10 bg-white p-6 text-center text-black/60">
-          Aucune commande trouvée pour ce numéro pour l&apos;instant — le suivi en temps réel sera actif dès
-          que le catalogue et les commandes seront connectés à la base de données (Supabase).
+          {t("notFound")}
         </div>
       )}
 
       <div className="mt-10 text-sm text-black/50">
-        <p className="font-medium mb-2">Statuts possibles :</p>
+        <p className="font-medium mb-2">{t("statusesHeading")}</p>
         <ul className="space-y-1">
-          {Object.values(STATUS_LABELS).map((label) => (
-            <li key={label}>· {label}</li>
+          {STATUS_KEYS.map((key) => (
+            <li key={key}>· {t(`status.${key}`)}</li>
           ))}
         </ul>
       </div>

@@ -1,24 +1,25 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useRouter, Link } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/format";
 import type { PaymentMethod } from "@/lib/types";
 
 const DELIVERY_FEE = 1000; // Nouakchott uniquement — à valider (voir SPEC.md §8)
 
-const PAYMENT_METHODS: { value: PaymentMethod; label: string }[] = [
-  { value: "BANKILY", label: "Bankily" },
-  { value: "MASRVI", label: "Masrvi" },
-  { value: "SEDAD", label: "Sedad" },
-  { value: "LIVRAISON", label: "Paiement à la livraison" },
-];
-
 export default function CommandePage() {
   const router = useRouter();
   const { items, subtotal, clear } = useCart();
+  const t = useTranslations("Checkout");
+
+  const PAYMENT_METHODS: { value: PaymentMethod; label: string }[] = [
+    { value: "BANKILY", label: "Bankily" },
+    { value: "MASRVI", label: "Masrvi" },
+    { value: "SEDAD", label: "Sedad" },
+    { value: "LIVRAISON", label: t("paymentDelivery") },
+  ];
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -60,9 +61,9 @@ export default function CommandePage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold mb-2">Ton panier est vide</h1>
+        <h1 className="text-2xl font-bold mb-2">{t("emptyTitle")}</h1>
         <Link href="/catalogue" className="text-blue-700 underline">
-          Retourner au catalogue
+          {t("backToCatalogue")}
         </Link>
       </div>
     );
@@ -70,49 +71,47 @@ export default function CommandePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
-      <h1 className="text-2xl font-bold mb-6">Finaliser la commande</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="rounded-lg border border-black/10 bg-white p-4 space-y-4">
-          <h2 className="font-semibold">Tes coordonnées</h2>
+          <h2 className="font-semibold">{t("contactHeading")}</h2>
           <div>
-            <label className="text-sm font-medium block mb-1">Nom</label>
+            <label className="text-sm font-medium block mb-1">{t("nameLabel")}</label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
               className="w-full rounded-md border border-black/15 px-3 py-2"
-              placeholder="Ex : Mohamed Ould Ahmed"
+              placeholder={t("namePlaceholder")}
             />
           </div>
           <div>
-            <label className="text-sm font-medium block mb-1">Numéro de téléphone</label>
+            <label className="text-sm font-medium block mb-1">{t("phoneLabel")}</label>
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
               inputMode="numeric"
               className="w-full rounded-md border border-black/15 px-3 py-2"
-              placeholder="Ex : 22345678"
+              placeholder={t("phonePlaceholder")}
             />
             {phone.length > 0 && !phoneValid && (
-              <p className="text-xs text-red-600 mt-1">Numéro à 8 chiffres attendu.</p>
+              <p className="text-xs text-red-600 mt-1">{t("phoneInvalid")}</p>
             )}
           </div>
         </div>
 
         <div className="rounded-lg border border-black/10 bg-white p-4 space-y-4">
           <h2 className="font-semibold">
-            Adresse de livraison {addressRequired ? "" : <span className="text-black/40 font-normal">(optionnelle)</span>}
+            {t("addressHeading")} {addressRequired ? "" : <span className="text-black/40 font-normal">{t("optional")}</span>}
           </h2>
           <p className="text-xs text-black/50">
-            {addressRequired
-              ? "Requise pour le paiement mobile : la commande part en préparation dès le paiement validé."
-              : "Pour le paiement à la livraison, on te rappelle pour confirmer la commande et préciser l'adresse si besoin."}
+            {addressRequired ? t("addressNoteRequired") : t("addressNoteOptional")}
           </p>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-sm font-medium block mb-1">Ville</label>
+              <label className="text-sm font-medium block mb-1">{t("cityLabel")}</label>
               <input
                 value={ville}
                 onChange={(e) => setVille(e.target.value)}
@@ -121,7 +120,7 @@ export default function CommandePage() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium block mb-1">Quartier</label>
+              <label className="text-sm font-medium block mb-1">{t("districtLabel")}</label>
               <input
                 value={quartier}
                 onChange={(e) => setQuartier(e.target.value)}
@@ -133,7 +132,7 @@ export default function CommandePage() {
         </div>
 
         <div className="rounded-lg border border-black/10 bg-white p-4 space-y-3">
-          <h2 className="font-semibold">Mode de paiement</h2>
+          <h2 className="font-semibold">{t("paymentHeading")}</h2>
           {PAYMENT_METHODS.map((m) => (
             <label key={m.value} className="flex items-center gap-3 rounded-md border border-black/10 px-3 py-2 cursor-pointer has-[:checked]:border-blue-700 has-[:checked]:bg-blue-50">
               <input
@@ -149,10 +148,10 @@ export default function CommandePage() {
         </div>
 
         <div className="rounded-lg border border-black/10 bg-white p-4 space-y-1 text-sm">
-          <div className="flex justify-between"><span>Sous-total</span><span>{formatPrice(subtotal)}</span></div>
-          <div className="flex justify-between"><span>Livraison</span><span>{formatPrice(DELIVERY_FEE)}</span></div>
+          <div className="flex justify-between"><span>{t("subtotal")}</span><span>{formatPrice(subtotal)}</span></div>
+          <div className="flex justify-between"><span>{t("delivery")}</span><span>{formatPrice(DELIVERY_FEE)}</span></div>
           <div className="flex justify-between font-bold text-base pt-1 border-t border-black/10 mt-1">
-            <span>Total</span><span>{formatPrice(total)}</span>
+            <span>{t("total")}</span><span>{formatPrice(total)}</span>
           </div>
         </div>
 
@@ -161,7 +160,7 @@ export default function CommandePage() {
           disabled={!canSubmit || submitting}
           className="w-full rounded-full bg-blue-700 text-white font-semibold py-3 disabled:opacity-40"
         >
-          {submitting ? "Envoi..." : "Confirmer la commande"}
+          {submitting ? t("submitting") : t("submit")}
         </button>
       </form>
     </div>

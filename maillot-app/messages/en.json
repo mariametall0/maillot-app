@@ -1,0 +1,126 @@
+{
+  "Metadata": {
+    "title": "MaillotF — Jerseys & sports equipment",
+    "description": "Custom club jerseys (name/number printing) and sports equipment, sold online."
+  },
+  "Nav": {
+    "catalogue": "Catalogue",
+    "jerseys": "Jerseys",
+    "equipment": "Equipment",
+    "tracking": "Track order",
+    "cart": "Cart"
+  },
+  "Home": {
+    "heroTitle": "Your jersey, your name, your number",
+    "heroSubtitle": "Customizable club jerseys and sports equipment, delivered in Nouakchott. Mobile payment (Bankily, Masrvi, Sedad) or cash on delivery.",
+    "cta": "Browse the catalogue",
+    "featured": "New arrivals"
+  },
+  "Catalogue": {
+    "title": "Catalogue",
+    "subtitle": "Jerseys and sports equipment.",
+    "all": "All",
+    "jerseys": "Jerseys",
+    "equipment": "Equipment",
+    "outOfStock": "Out of stock"
+  },
+  "Product": {
+    "sizeType": {
+      "taille": "Size",
+      "pointure": "Shoe size"
+    },
+    "stockLow": "Only {count} left in stock",
+    "personalizeCheckbox": "Personalize (name + number printing) — +{price}",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. BARRY",
+    "numberLabel": "Number (0–99)",
+    "numberPlaceholder": "e.g. 10",
+    "numberInvalid": "The number must be between 0 and 99.",
+    "previewLabel": "Print preview",
+    "previewNamePlaceholder": "NAME",
+    "previewNumberPlaceholder": "#",
+    "personalizationNote": "Longer preparation time for personalized items — printing starts once payment is confirmed.",
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "added": "Added to cart ✅",
+    "viewCart": "View cart"
+  },
+  "Cart": {
+    "title": "Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptySubtitle": "Browse the catalogue to find your jersey.",
+    "viewCatalogue": "Browse the catalogue",
+    "sizeLabel": "Size: {size}",
+    "personalizationLabel": "Printing: {name} · {number}",
+    "qtyLabel": "Qty",
+    "remove": "Remove",
+    "subtotalNote": "Subtotal (delivery calculated at checkout)",
+    "checkout": "Checkout"
+  },
+  "Checkout": {
+    "emptyTitle": "Your cart is empty",
+    "backToCatalogue": "Back to catalogue",
+    "title": "Complete your order",
+    "contactHeading": "Your details",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Mohamed Ould Ahmed",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "e.g. 22345678",
+    "phoneInvalid": "An 8-digit number is expected.",
+    "addressHeading": "Delivery address",
+    "optional": "(optional)",
+    "addressNoteRequired": "Required for mobile payment: the order goes into preparation as soon as payment is confirmed.",
+    "addressNoteOptional": "For cash on delivery, we'll call you to confirm the order and get the exact address if needed.",
+    "cityLabel": "City",
+    "districtLabel": "District",
+    "paymentHeading": "Payment method",
+    "paymentDelivery": "Cash on delivery",
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "total": "Total",
+    "submitting": "Sending...",
+    "submit": "Confirm order"
+  },
+  "Confirmation": {
+    "title": "Order sent!",
+    "body1": "Thanks for your order. You can track its status at any time with your phone number.",
+    "body2": "For cash on delivery, we'll call you back to confirm before preparation starts.",
+    "trackOrder": "Track my order",
+    "continueShopping": "Continue shopping"
+  },
+  "Tracking": {
+    "title": "Track my order",
+    "subtitle": "Enter the phone number used when ordering — no account needed.",
+    "phonePlaceholder": "e.g. 22345678",
+    "searching": "...",
+    "search": "Search",
+    "notFound": "No order found for this number yet — real-time tracking will be active once the catalogue and orders are connected to the database (Supabase).",
+    "statusesHeading": "Possible statuses:",
+    "status": {
+      "RECUE": "Received",
+      "EN_ATTENTE_CONFIRMATION_CLIENT": "Awaiting confirmation (we'll call you)",
+      "CONFIRMEE": "Confirmed",
+      "EN_PREPARATION": "In preparation",
+      "EXPEDIEE": "Shipped",
+      "LIVREE": "Delivered",
+      "ANNULEE": "Cancelled"
+    }
+  },
+  "Admin": {
+    "title": "Admin area",
+    "unprotectedWarning": "⚠️ Unprotected page — needs to be secured with Supabase Auth before going live.",
+    "catalogueHeading": "Catalogue ({count} products)",
+    "product": "Product",
+    "category": "Category",
+    "basePrice": "Base price",
+    "totalStock": "Total stock",
+    "outOfStock": "Out of stock",
+    "categoryJersey": "Jersey",
+    "categoryEquipment": "Equipment",
+    "ordersHeading": "Orders",
+    "ordersEmpty": "No orders yet — the order list (with status filters, status changes, payment view and stats) will be wired up once the Supabase database is connected."
+  },
+  "Footer": {
+    "tagline": "MaillotF — Nouakchott, Mauritania"
+  }
+}

@@ -1,5 +1,6 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getAllProducts, getProductsByCategory } from "@/lib/products";
 import { formatPrice } from "@/lib/format";
 import type { ProductCategory } from "@/lib/types";
@@ -14,27 +15,28 @@ export default async function CataloguePage({
   const { category } = await searchParams;
   const activeCategory = category as ProductCategory | undefined;
 
-  const products = activeCategory
-    ? await getProductsByCategory(activeCategory)
-    : await getAllProducts();
+  const [products, t] = await Promise.all([
+    activeCategory ? getProductsByCategory(activeCategory) : getAllProducts(),
+    getTranslations("Catalogue"),
+  ]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="text-2xl font-bold mb-2">Catalogue</h1>
+      <h1 className="text-2xl font-bold mb-2">{t("title")}</h1>
       <p className="text-black/60 mb-6">
         {/* Filtres avancés (club, équipe, taille, prix) à brancher une fois le catalogue connecté à la base */}
-        Maillots et équipements de sport.
+        {t("subtitle")}
       </p>
 
       <div className="flex gap-2 mb-8 text-sm font-medium">
         <FilterLink href="/catalogue" active={!activeCategory}>
-          Tout
+          {t("all")}
         </FilterLink>
         <FilterLink href="/catalogue?category=MAILLOT" active={activeCategory === "MAILLOT"}>
-          Maillots
+          {t("jerseys")}
         </FilterLink>
         <FilterLink href="/catalogue?category=EQUIPEMENT" active={activeCategory === "EQUIPEMENT"}>
-          Équipements
+          {t("equipment")}
         </FilterLink>
       </div>
 
@@ -56,7 +58,7 @@ export default async function CataloguePage({
                 />
                 {totalStock === 0 && (
                   <span className="absolute top-2 left-2 rounded bg-black/70 text-white text-xs px-2 py-1">
-                    Rupture de stock
+                    {t("outOfStock")}
                   </span>
                 )}
               </div>

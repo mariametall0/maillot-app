@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
@@ -13,6 +14,7 @@ const MAX_NAME_LENGTH = 12;
 export function ProductDetail({ product }: { product: Product }) {
   const router = useRouter();
   const { addItem } = useCart();
+  const t = useTranslations("Product");
 
   const [activeImage, setActiveImage] = useState(0);
   const [zoomed, setZoomed] = useState(false);
@@ -111,7 +113,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
         {/* Sélection de variante */}
         <div className="mt-6">
-          <p className="text-sm font-medium mb-2 capitalize">{variant?.sizeType ?? "taille"}</p>
+          <p className="text-sm font-medium mb-2">{t(`sizeType.${variant?.sizeType ?? "taille"}`)}</p>
           <div className="flex flex-wrap gap-2">
             {product.variants.map((v) => (
               <button
@@ -127,7 +129,7 @@ export function ProductDetail({ product }: { product: Product }) {
             ))}
           </div>
           {variant && variant.stock > 0 && variant.stock <= 3 && (
-            <p className="mt-2 text-xs text-orange-600">Plus que {variant.stock} en stock</p>
+            <p className="mt-2 text-xs text-orange-600">{t("stockLow", { count: variant.stock })}</p>
           )}
         </div>
 
@@ -140,47 +142,44 @@ export function ProductDetail({ product }: { product: Product }) {
                 checked={personalize}
                 onChange={(e) => setPersonalize(e.target.checked)}
               />
-              Personnaliser (flocage nom + numéro) — +{formatPrice(PERSONALIZATION_FEE)}
+              {t("personalizeCheckbox", { price: formatPrice(PERSONALIZATION_FEE) })}
             </label>
 
             {personalize && (
               <div className="mt-4 space-y-3">
                 <div>
-                  <label className="text-sm font-medium block mb-1">Nom</label>
+                  <label className="text-sm font-medium block mb-1">{t("nameLabel")}</label>
                   <input
                     type="text"
                     value={name}
                     maxLength={MAX_NAME_LENGTH}
                     onChange={(e) => setName(e.target.value.toUpperCase())}
-                    placeholder="Ex : BARRY"
+                    placeholder={t("namePlaceholder")}
                     className="w-full rounded-md border border-black/15 px-3 py-2"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium block mb-1">Numéro (0–99)</label>
+                  <label className="text-sm font-medium block mb-1">{t("numberLabel")}</label>
                   <input
                     type="number"
                     min={0}
                     max={99}
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
-                    placeholder="Ex : 10"
+                    placeholder={t("numberPlaceholder")}
                     className="w-full rounded-md border border-black/15 px-3 py-2"
                   />
-                  {!numberValid && <p className="text-xs text-red-600 mt-1">Le numéro doit être entre 0 et 99.</p>}
+                  {!numberValid && <p className="text-xs text-red-600 mt-1">{t("numberInvalid")}</p>}
                 </div>
 
                 {/* Aperçu texte simple (5.2) */}
                 <div className="rounded-md bg-neutral-100 p-3 text-center">
-                  <p className="text-xs text-black/50 mb-1">Aperçu du flocage</p>
+                  <p className="text-xs text-black/50 mb-1">{t("previewLabel")}</p>
                   <p className="font-bold tracking-widest text-lg">
-                    {name.trim() || "NOM"} · {number !== "" ? number : "N°"}
+                    {name.trim() || t("previewNamePlaceholder")} · {number !== "" ? number : t("previewNumberPlaceholder")}
                   </p>
                 </div>
-                <p className="text-xs text-black/50">
-                  Délai de préparation plus long pour les articles personnalisés — le flocage démarre après
-                  confirmation du paiement.
-                </p>
+                <p className="text-xs text-black/50">{t("personalizationNote")}</p>
               </div>
             )}
           </div>
@@ -191,14 +190,14 @@ export function ProductDetail({ product }: { product: Product }) {
           disabled={!canAddToCart}
           className="mt-6 w-full rounded-full bg-blue-700 text-white font-semibold py-3 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-blue-800"
         >
-          {variant?.stock === 0 ? "Rupture de stock" : "Ajouter au panier"}
+          {variant?.stock === 0 ? t("outOfStock") : t("addToCart")}
         </button>
 
         {added && (
           <div className="mt-3 flex items-center justify-between rounded-md bg-green-50 border border-green-200 px-4 py-3 text-sm">
-            <span>Ajouté au panier ✅</span>
+            <span>{t("added")}</span>
             <button onClick={() => router.push("/panier")} className="font-semibold text-blue-700 underline">
-              Voir le panier
+              {t("viewCart")}
             </button>
           </div>
         )}
