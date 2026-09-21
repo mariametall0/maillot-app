@@ -3,7 +3,7 @@
 // les modèles Prisma (Decimal -> number, etc.)
 
 export type ProductCategory = "MAILLOT" | "EQUIPEMENT";
-export type EquipmentSubtype = "CHAUSSURES" | "BALLONS" | "ACCESSOIRES" | "AUTRE";
+export type EquipmentSubtype = "CHAUSSURES" | "BALLONS" | "GANTS" | "ACCESSOIRES" | "AUTRE";
 export type JerseyKit = "DOMICILE" | "EXTERIEUR" | "THIRD";
 
 export type ProductVariant = {
@@ -31,6 +31,10 @@ export type Product = {
   name: string;
   description: string;
   basePrice: number;
+  originalPrice?: number;
+  discountPercent?: number;
+  rating?: number;
+  reviewCount?: number;
   personalizable: boolean;
   images: ProductImage[];
   variants: ProductVariant[];

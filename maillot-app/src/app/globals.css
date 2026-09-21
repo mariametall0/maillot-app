@@ -1,15 +1,251 @@
 @import "tailwindcss";
 
-/* Site volontairement en thème clair fixe pour l'instant (pas de mode sombre
-   conçu) — on ne suit donc pas prefers-color-scheme, sinon le fond devient
-   noir avec du texte gris clair sur navigateur/OS en mode sombre alors que
-   les composants (bg-white, text-black, ...) restent pensés pour un thème
-   clair. <body> fixe déjà bg-neutral-50/text-black via Tailwind (layout.tsx). */
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+:root {
+  --navy-blue: #071A35;
+  --pure-white: #FFFFFF;
+  --action-green: #16A34A;
+  --text-dark: #1F2937;
+  --bg-light-gray: #F3F4F6;
+  --border-subtle: #E5E7EB;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FFFFFF;
+  color: #1F2937;
+  -webkit-font-smoothing: antialiased;
 }
+
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Green Action Button with Shine Effect */
+.btn-green-action {
+  background-color: #16A34A;
+  color: #FFFFFF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-green-action::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  transition: all 0.6s ease;
+}
+
+.btn-green-action:hover::after {
+  left: 120%;
+}
+
+.btn-green-action:hover {
+  background-color: #15803D;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 25px -5px rgba(22, 163, 74, 0.4);
+}
+
+.btn-green-action:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-green-outline {
+  background-color: transparent;
+  color: #16A34A;
+  border: 2px solid #16A34A;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.25s ease;
+}
+
+.btn-green-outline:hover {
+  background-color: #16A34A;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.3);
+}
+
+/* Navy Blue Primary Button */
+.btn-navy-blue {
+  background-color: #071A35;
+  color: #FFFFFF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-navy-blue:hover {
+  background-color: #0C2852;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 25px -5px rgba(7, 26, 53, 0.35);
+}
+
+.btn-navy-blue:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Product Card Styling */
+.numero10-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1.25rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.numero10-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(7, 26, 53, 0.14), 0 0 20px -5px rgba(22, 163, 74, 0.15);
+  border-color: #16A34A;
+}
+
+/* Smooth Badge Pulse */
+.badge-promo {
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.05em;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-3deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(22, 163, 74, 0));
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 8px rgba(22, 163, 74, 0.4));
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* UTILITY ANIMATION CLASSES */
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-pop-in {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive 3D Perspective Card */
+.perspective-container {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(-2deg);
+}
+

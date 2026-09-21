@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "MaillotF — Jerseys & sports equipment",
-    "description": "Custom club jerseys (name/number printing) and sports equipment, sold online."
+    "title": "NUMÉRO 10 — Jerseys & sports equipment in Mauritania",
+    "description": "Custom club jerseys (official name/number printing) and sports equipment, delivered across Mauritania."
   },
   "Nav": {
     "catalogue": "Catalogue",
@@ -12,7 +12,7 @@
   },
   "Home": {
     "heroTitle": "Your jersey, your name, your number",
-    "heroSubtitle": "Customizable club jerseys and sports equipment, delivered in Nouakchott. Mobile payment (Bankily, Masrvi, Sedad) or cash on delivery.",
+    "heroSubtitle": "Customizable club jerseys and sports equipment, delivered across Mauritania. Mobile payment (Bankily, Masrvi, Sedad) or cash on delivery.",
     "cta": "Browse the catalogue",
     "featured": "New arrivals"
   },
@@ -121,6 +121,6 @@
     "ordersEmpty": "No orders yet — the order list (with status filters, status changes, payment view and stats) will be wired up once the Supabase database is connected."
   },
   "Footer": {
-    "tagline": "MaillotF — Nouakchott, Mauritania"
+    "tagline": "NUMÉRO 10 — Delivery across Mauritania"
   }
 }

@@ -1,57 +1,8 @@
-// Peuple la base avec les produits de démonstration (mêmes données que
-// src/lib/mock-data.ts, utilisées le temps que le vrai catalogue existe).
-// Lancer avec : npm run db:seed
-
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
-const adapter = new PrismaPg(process.env.DATABASE_URL ?? "");
+const adapter = new PrismaPg(process.env.DIRECT_URL ?? process.env.DATABASE_URL ?? "");
 const prisma = new PrismaClient({ adapter });
-
-// Illustrations placeholder (silhouettes, pas de logo de marque réelle) —
-// en attendant de vraies photos uploadées depuis l'admin (Supabase Storage).
-// Volontairement des pictogrammes plutôt que des photos de vrais clubs
-// (Arsenal, Man United, ...) : utiliser une vraie photo de maillot d'un
-// autre club pour représenter "FC Barka" serait trompeur.
-function toDataUri(svg: string) {
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
-}
-
-function jerseyImage(mainColor: string, trimColor = "#ffffff") {
-  return toDataUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="600" height="600">
-    <rect width="240" height="240" fill="#f4f4f5"/>
-    <polygon points="80,50 40,70 55,110 80,95" fill="${mainColor}" stroke="#111827" stroke-width="3" stroke-linejoin="round"/>
-    <polygon points="160,50 200,70 185,110 160,95" fill="${mainColor}" stroke="#111827" stroke-width="3" stroke-linejoin="round"/>
-    <rect x="80" y="50" width="80" height="150" rx="8" fill="${mainColor}" stroke="#111827" stroke-width="3"/>
-    <polygon points="110,50 120,68 130,50" fill="#f4f4f5"/>
-    <rect x="80" y="66" width="80" height="8" fill="${trimColor}"/>
-  </svg>`);
-}
-
-function ballImage() {
-  return toDataUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="600" height="600">
-    <rect width="240" height="240" fill="#f4f4f5"/>
-    <circle cx="120" cy="120" r="90" fill="#ffffff" stroke="#111827" stroke-width="4"/>
-    <polygon points="120,90 138,103 131,124 109,124 102,103" fill="#111827"/>
-    <line x1="120" y1="90" x2="120" y2="55" stroke="#111827" stroke-width="3"/>
-    <line x1="138" y1="103" x2="170" y2="85" stroke="#111827" stroke-width="3"/>
-    <line x1="131" y1="124" x2="155" y2="155" stroke="#111827" stroke-width="3"/>
-    <line x1="109" y1="124" x2="85" y2="155" stroke="#111827" stroke-width="3"/>
-    <line x1="102" y1="103" x2="70" y2="85" stroke="#111827" stroke-width="3"/>
-  </svg>`);
-}
-
-function shoeImage(mainColor: string) {
-  return toDataUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="600" height="600">
-    <rect width="240" height="240" fill="#f4f4f5"/>
-    <path d="M40,150 C40,120 70,100 110,95 L170,80 C190,75 205,90 205,110 C205,125 195,140 175,145 L45,160 C33,160 30,157 40,150 Z"
-      fill="${mainColor}" stroke="#111827" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M38,150 L200,148 L207,166 L34,166 Z" fill="#111827"/>
-    <circle cx="90" cy="112" r="3" fill="#ffffff"/>
-    <circle cx="106" cy="105" r="3" fill="#ffffff"/>
-    <circle cx="122" cy="99" r="3" fill="#ffffff"/>
-  </svg>`);
-}
 
 async function main() {
   console.log("Nettoyage des données existantes...");
@@ -61,8 +12,9 @@ async function main() {
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
 
-  console.log("Création des produits de démonstration...");
+  console.log("Création des produits avec de VRAIES photos de haute qualité...");
 
+  // 1. Maillot FC Barka Domicile
   await prisma.product.create({
     data: {
       id: "maillot-fcbk-dom",
@@ -71,13 +23,12 @@ async function main() {
       season: "2025/2026",
       name: "Maillot FC Barka Domicile",
       description:
-        "Maillot officiel domicile FC Barka, saison 2025/2026. Personnalisation nom + numéro disponible.",
+        "Maillot officiel domicile FC Barka, saison 2025/2026. Tissu respirant Dri-FIT haute performance. Flocage nom + numéro disponible.",
       basePrice: 12000,
       personalizable: true,
       images: {
         create: [
-          { url: jerseyImage("#0f766e"), kit: "DOMICILE", position: 0 },
-          { url: jerseyImage("#115e59", "#f4f4f5"), kit: "DOMICILE", position: 1 },
+          { url: "/images/products/maillot_domicile.jpg", kit: "DOMICILE", position: 0 },
         ],
       },
       variants: {
@@ -92,6 +43,7 @@ async function main() {
     },
   });
 
+  // 2. Maillot FC Barka Extérieur
   await prisma.product.create({
     data: {
       id: "maillot-fcbk-ext",
@@ -99,35 +51,50 @@ async function main() {
       club: "FC Barka",
       season: "2025/2026",
       name: "Maillot FC Barka Extérieur",
-      description: "Maillot officiel extérieur FC Barka, saison 2025/2026.",
+      description: "Maillot officiel extérieur FC Barka, édition collector. Personnalisation nom + numéro au choix.",
       basePrice: 12000,
       personalizable: true,
       images: {
-        create: [{ url: jerseyImage("#7c2d12"), kit: "EXTERIEUR", position: 0 }],
+        create: [
+          {
+            url: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&auto=format&fit=crop&q=80",
+            kit: "EXTERIEUR",
+            position: 0,
+          },
+        ],
       },
       variants: {
         create: [
           { kit: "EXTERIEUR", sizeLabel: "M", sizeType: "taille", stock: 7 },
           { kit: "EXTERIEUR", sizeLabel: "L", sizeType: "taille", stock: 5 },
-          { kit: "EXTERIEUR", sizeLabel: "XL", sizeType: "taille", stock: 0 },
+          { kit: "EXTERIEUR", sizeLabel: "XL", sizeType: "taille", stock: 3 },
         ],
       },
     },
   });
 
+  // 3. Chaussures X-Speed
   await prisma.product.create({
     data: {
       id: "chaussures-x-speed",
       category: "EQUIPEMENT",
       subtype: "CHAUSSURES",
-      name: "Chaussures X-Speed",
-      description: "Chaussures de football, crampons FG, terrain sec.",
+      name: "Chaussures X-Speed Pro",
+      description: "Crampons de football professionnels FG pour terrains secs et synthétiques. Accélération explosive.",
       basePrice: 18000,
       personalizable: false,
-      images: { create: [{ url: shoeImage("#78350f"), position: 0 }] },
+      images: {
+        create: [
+          {
+            url: "https://images.unsplash.com/photo-1511886929837-354d827aae26?w=800&auto=format&fit=crop&q=80",
+            position: 0,
+          },
+        ],
+      },
       variants: {
         create: [
           { sizeLabel: "40", sizeType: "pointure", stock: 3 },
+          { sizeLabel: "41", sizeType: "pointure", stock: 4 },
           { sizeLabel: "42", sizeType: "pointure", stock: 5 },
           { sizeLabel: "43", sizeType: "pointure", stock: 2 },
         ],
@@ -135,21 +102,87 @@ async function main() {
     },
   });
 
+  // 4. Ballon de match Officiel
   await prisma.product.create({
     data: {
       id: "ballon-match",
       category: "EQUIPEMENT",
       subtype: "BALLONS",
-      name: "Ballon de match",
-      description: "Ballon officiel taille 5, homologué compétition.",
+      name: "Ballon de Match Pro",
+      description: "Ballon officiel taille 5 thermo-collé pour une trajectoire parfaite et une étanchéité optimale.",
       basePrice: 6000,
       personalizable: false,
-      images: { create: [{ url: ballImage(), position: 0 }] },
+      images: {
+        create: [
+          {
+            url: "https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=800&auto=format&fit=crop&q=80",
+            position: 0,
+          },
+        ],
+      },
       variants: { create: [{ sizeLabel: "Taille 5", sizeType: "taille", stock: 20 }] },
     },
   });
 
-  console.log("Seed terminé ✅");
+  // 5. Maillot Équipe Nationale Mauritanie (FFRIM)
+  await prisma.product.create({
+    data: {
+      id: "maillot-ffrim-dom",
+      category: "MAILLOT",
+      club: "Mourabitounes",
+      season: "2025/2026",
+      name: "Maillot Mauritanie Domicile",
+      description: "Maillot officiel des Mourabitounes de Mauritanie. Flocage disponible avec vos joueurs préférés.",
+      basePrice: 14000,
+      personalizable: true,
+      images: {
+        create: [
+          {
+            url: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&auto=format&fit=crop&q=80",
+            position: 0,
+          },
+        ],
+      },
+      variants: {
+        create: [
+          { sizeLabel: "S", sizeType: "taille", stock: 6 },
+          { sizeLabel: "M", sizeType: "taille", stock: 10 },
+          { sizeLabel: "L", sizeType: "taille", stock: 8 },
+          { sizeLabel: "XL", sizeType: "taille", stock: 5 },
+        ],
+      },
+    },
+  });
+
+  // 6. Maillot Real White Edition
+  await prisma.product.create({
+    data: {
+      id: "maillot-real-dom",
+      category: "MAILLOT",
+      club: "Real Edition",
+      season: "2025/2026",
+      name: "Maillot White Edition Pro",
+      description: "Édition blanche épurée avec détails dorés. Tissu ultra-léger respirant.",
+      basePrice: 13500,
+      personalizable: true,
+      images: {
+        create: [
+          {
+            url: "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=800&auto=format&fit=crop&q=80",
+            position: 0,
+          },
+        ],
+      },
+      variants: {
+        create: [
+          { sizeLabel: "M", sizeType: "taille", stock: 5 },
+          { sizeLabel: "L", sizeType: "taille", stock: 7 },
+        ],
+      },
+    },
+  });
+
+  console.log("Seed avec vraies photos terminé ✅");
 }
 
 main()

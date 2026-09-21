@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "MaillotF — Maillots & équipements de sport",
-    "description": "Vente de maillots de clubs personnalisables (flocage) et d'équipements de sport."
+    "title": "NUMÉRO 10 — Maillots & équipements de sport en Mauritanie",
+    "description": "Vente de maillots de clubs personnalisables (flocage officiel) et équipements de sport avec livraison partout en Mauritanie."
   },
   "Nav": {
     "catalogue": "Catalogue",
@@ -12,7 +12,7 @@
   },
   "Home": {
     "heroTitle": "Ton maillot, ton nom, ton numéro",
-    "heroSubtitle": "Maillots de clubs personnalisables et équipements de sport, livrés à Nouakchott. Paiement mobile (Bankily, Masrvi, Sedad) ou à la livraison.",
+    "heroSubtitle": "Maillots de clubs personnalisables et équipements de sport, livrés partout en Mauritanie. Paiement mobile (Bankily, Masrvi, Sedad) ou à la livraison.",
     "cta": "Voir le catalogue",
     "featured": "Nouveautés"
   },
@@ -121,6 +121,6 @@
     "ordersEmpty": "Aucune commande pour l'instant — la liste des commandes (avec filtres par statut, changement de statut, vue des paiements et statistiques) sera branchée une fois la base de données Supabase connectée."
   },
   "Footer": {
-    "tagline": "MaillotF — Nouakchott, Mauritanie"
+    "tagline": "NUMÉRO 10 — Vente & Flocage partout en Mauritanie"
   }
 }
