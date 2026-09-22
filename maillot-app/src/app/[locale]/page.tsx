@@ -24,9 +24,10 @@ export default async function HomePage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight uppercase font-display leading-[0.95] text-[#0A0F1D]">
-              ÉQUIPE-TOI. <br />
-              <span className="text-slate-700">JOUE.</span> GAGNE.
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase font-display leading-[0.98] text-[#0A0F1D]">
+              TON MAILLOT. <br />
+              <span className="text-slate-700">TON NOM.</span> <br />
+              TON HISTOIRE.
             </h1>
 
             {/* Subtitle */}
