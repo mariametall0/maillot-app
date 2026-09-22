@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
-import { HeroSportShowcase } from "@/components/hero-sport-showcase";
+import { CinematicHeroSlider } from "@/components/cinematic-hero-slider";
 
 export default async function HomePage() {
   const products = await getAllProducts();
@@ -9,72 +9,8 @@ export default async function HomePage() {
 
   return (
     <div className="bg-white min-h-screen text-[#1F2937] overflow-hidden">
-      {/* HERO SECTION - Clean, High-End Athletic Design */}
-      <section className="relative min-h-[560px] sm:min-h-[600px] flex items-center justify-center py-12 sm:py-16 px-4 sm:px-8 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
-        {/* Subtle Ambient Background */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative mx-auto max-w-7xl w-full grid lg:grid-cols-12 gap-12 items-center z-10">
-          {/* Left Column: Bold Typography & Refined Actions */}
-          <div className="lg:col-span-7 text-left space-y-6 animate-pop-in">
-            {/* Elegant Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-white border border-slate-300 text-slate-800 text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-xs">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              <span>BOUTIQUE OFFICIELLE • FLOCAGE SUR-MESURE</span>
-            </div>
-
-            {/* Title */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase font-display leading-[0.98] text-[#0A0F1D]">
-              TON MAILLOT. <br />
-              <span className="text-slate-700">TON NOM.</span> <br />
-              TON HISTOIRE.
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg font-medium text-slate-600 leading-relaxed font-sans max-w-xl">
-              Tout pour vivre votre passion du football. Maillots officiels de clubs, crampons pros, ballons et accessoires avec livraison express partout en Mauritanie.
-            </p>
-
-            {/* Actions: Clean Black Primary + Refined White Secondary */}
-            <div className="pt-3 flex flex-wrap gap-4 items-center">
-              <Link
-                href="/catalogue"
-                className="inline-flex items-center gap-3 bg-[#0A0F1D] text-white hover:bg-black font-extrabold text-sm px-8 py-4 tracking-wider uppercase rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:scale-95"
-              >
-                <span>DÉCOUVRIR LA BOUTIQUE</span>
-                <span className="text-base transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-              <Link
-                href="/catalogue?category=MAILLOT"
-                className="inline-flex items-center gap-2 bg-white text-[#0A0F1D] border border-slate-300 hover:border-slate-400 font-bold text-sm px-7 py-4 tracking-wider uppercase rounded-2xl hover:bg-slate-50 transition-all transform hover:-translate-y-0.5 active:scale-95"
-              >
-                <span>Maillots Clubs</span>
-              </Link>
-            </div>
-
-            {/* Trust Features Bar */}
-            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200 text-xs font-semibold text-slate-600">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-800 text-sm">🚚</span>
-                <span>Toute la Mauritanie</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-800 text-sm">✍️</span>
-                <span>Flocage personnalisé</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-800 text-sm">💳</span>
-                <span>Paiement sécurisé</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Animated Dynamic Sports Showcase */}
-          <div className="lg:col-span-5 w-full">
-            <HeroSportShowcase />
-          </div>
-        </div>
-      </section>
+      {/* FULL-WIDTH CINEMATIC ATHLETIC HERO (STACK STYLE) */}
+      <CinematicHeroSlider />
 
       {/* STATS BANNER */}
       <section className="bg-[#071A35] text-white py-6 border-b border-[#0A254C]">
