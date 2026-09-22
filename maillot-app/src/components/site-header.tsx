@@ -57,44 +57,43 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-colors">
-      {/* Top Banner - Smooth Infinite Animated Ticker Marquee */}
-      <div className="bg-[#071A35] text-white text-[11px] font-extrabold py-2 border-b border-[#0A254C] overflow-hidden whitespace-nowrap select-none">
+      {/* Top Banner - Clean, Minimalist & Elegant Ticker Marquee */}
+      <div className="bg-[#0A0F1D] text-slate-200 text-[11px] font-semibold tracking-wider py-2 border-b border-slate-800 overflow-hidden whitespace-nowrap select-none">
         <div className="animate-marquee flex items-center gap-8">
-          <span className="flex items-center gap-2">⚡ <span className="text-emerald-400">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">✍️ <span className="text-white">FLOCAGE NOM + NUMÉRO OFFICIEL DISPONIBLE</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">💳 <span className="text-emerald-400">PAIEMENT BANKILY, MASRVI, SEDAD & CASH</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">🏆 <span className="text-amber-300">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">⚽ <span className="text-white">NOUVELLE COLLECTION 2024/2025</span></span>
-          <span className="text-slate-500">•</span>
-          {/* Repeated for seamless continuous loop */}
-          <span className="flex items-center gap-2">⚡ <span className="text-emerald-400">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">✍️ <span className="text-white">FLOCAGE NOM + NUMÉRO OFFICIEL DISPONIBLE</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">💳 <span className="text-emerald-400">PAIEMENT BANKILY, MASRVI, SEDAD & CASH</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">🏆 <span className="text-amber-300">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
-          <span className="text-slate-500">•</span>
-          <span className="flex items-center gap-2">⚽ <span className="text-white">NOUVELLE COLLECTION 2024/2025</span></span>
-          <span className="text-slate-500">•</span>
+          <span className="flex items-center gap-2"><span>⚡</span> <span className="font-bold text-white">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>✍️</span> <span>FLOCAGE OFFICIEL NOM + NUMÉRO SUR-MESURE</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>💳</span> <span>PAIEMENT SÉCURISÉ : BANKILY, MASRVI, SEDAD & CASH</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>🏆</span> <span className="font-bold text-white">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>⚽</span> <span>COLLECTION SAISON 2024 / 2025</span></span>
+          <span className="text-slate-600">•</span>
+          {/* Loop repetition */}
+          <span className="flex items-center gap-2"><span>⚡</span> <span className="font-bold text-white">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>✍️</span> <span>FLOCAGE OFFICIEL NOM + NUMÉRO SUR-MESURE</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>💳</span> <span>PAIEMENT SÉCURISÉ : BANKILY, MASRVI, SEDAD & CASH</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>🏆</span> <span className="font-bold text-white">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="flex items-center gap-2"><span>⚽</span> <span>COLLECTION SAISON 2024 / 2025</span></span>
+          <span className="text-slate-600">•</span>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
         {/* Left: Brand Logo NUMÉRO 10 */}
-        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-xl bg-[#071A35] flex items-center justify-center text-white font-black text-sm tracking-tighter shadow-md border border-[#16A34A]/40 group-hover:scale-105 group-hover:rotate-3 transition-transform">
+        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-xl bg-[#0A0F1D] flex items-center justify-center text-white font-black text-sm tracking-tighter shadow-sm border border-slate-700 group-hover:scale-105 transition-transform">
             N°10
           </div>
           <div className="relative flex items-center">
-            <span className="font-black text-2xl sm:text-3xl tracking-tighter text-[#071A35] font-display uppercase group-hover:tracking-tight transition-all">
-              NUMÉRO <span className="text-[#16A34A] transition-colors">10</span>
+            <span className="font-black text-2xl sm:text-3xl tracking-tighter text-[#0A0F1D] font-display uppercase group-hover:tracking-tight transition-all">
+              NUMÉRO <span className="text-slate-700">10</span>
             </span>
-            <span className="h-2.5 w-2.5 rounded-full bg-[#16A34A] ml-1.5 animate-pulse"></span>
           </div>
         </Link>
 

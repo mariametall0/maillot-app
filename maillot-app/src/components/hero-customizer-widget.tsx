@@ -22,22 +22,22 @@ export function HeroCustomizerWidget() {
       {/* Top Header */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-3">
         <div>
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#16A34A] flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-ping"></span>
-            STUDIO FLOCAGE LIVE ✍️
+          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            STUDIO FLOCAGE LIVE
           </span>
-          <h3 className="text-lg sm:text-xl font-black text-[#071A35] uppercase font-display">
+          <h3 className="text-lg sm:text-xl font-black text-[#0A0F1D] uppercase font-display">
             Personnalise ton Maillot
           </h3>
         </div>
-        <span className="bg-amber-50 text-amber-800 text-[11px] font-black px-3 py-1 rounded-full border border-amber-200 shadow-xs">
+        <span className="bg-slate-100 text-slate-700 text-[11px] font-bold px-3 py-1 rounded-full border border-slate-200">
           Nom + Numéro
         </span>
       </div>
 
       {/* Club Theme Selector Pills */}
       <div className="space-y-1.5">
-        <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 block">
+        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
           Style du Maillot :
         </label>
         <div className="grid grid-cols-4 gap-2">
@@ -46,9 +46,9 @@ export function HeroCustomizerWidget() {
               key={t.name}
               type="button"
               onClick={() => setSelectedTheme(idx)}
-              className={`py-1.5 px-2 rounded-xl text-[11px] font-extrabold transition-all duration-200 border ${
+              className={`py-1.5 px-2 rounded-xl text-[11px] font-bold transition-all duration-200 border ${
                 selectedTheme === idx
-                  ? "bg-[#071A35] text-white border-[#071A35] shadow-sm scale-105"
+                  ? "bg-[#0A0F1D] text-white border-[#0A0F1D] shadow-sm scale-105"
                   : "bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200"
               }`}
             >
@@ -61,7 +61,7 @@ export function HeroCustomizerWidget() {
       {/* Interactive Inputs */}
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-[11px] font-black uppercase tracking-wider text-slate-600 block mb-1">
+          <label className="text-[11px] font-bold uppercase tracking-wider text-slate-600 block mb-1">
             Nom du Joueur
           </label>
           <input
@@ -70,11 +70,11 @@ export function HeroCustomizerWidget() {
             maxLength={12}
             onChange={(e) => setName(e.target.value.toUpperCase())}
             placeholder="EX : MBAPPÉ"
-            className="w-full bg-slate-50 border border-slate-300 text-[#071A35] rounded-xl px-3.5 py-2.5 text-xs font-black outline-none focus:border-[#16A34A] focus:bg-white transition-all uppercase shadow-inner"
+            className="w-full bg-slate-50 border border-slate-300 text-[#0A0F1D] rounded-xl px-3.5 py-2.5 text-xs font-bold outline-none focus:border-slate-800 focus:bg-white transition-all uppercase shadow-inner"
           />
         </div>
         <div>
-          <label className="text-[11px] font-black uppercase tracking-wider text-slate-600 block mb-1">
+          <label className="text-[11px] font-bold uppercase tracking-wider text-slate-600 block mb-1">
             Numéro (0-99)
           </label>
           <input
@@ -84,18 +84,18 @@ export function HeroCustomizerWidget() {
             value={number}
             onChange={(e) => setNumber(e.target.value)}
             placeholder="9"
-            className="w-full bg-slate-50 border border-slate-300 text-[#071A35] rounded-xl px-3.5 py-2.5 text-xs font-black outline-none focus:border-[#16A34A] focus:bg-white transition-all shadow-inner"
+            className="w-full bg-slate-50 border border-slate-300 text-[#0A0F1D] rounded-xl px-3.5 py-2.5 text-xs font-bold outline-none focus:border-slate-800 focus:bg-white transition-all shadow-inner"
           />
         </div>
       </div>
 
       {/* Live Jersey Render Box with Realistic Jersey Visual */}
-      <div className={`rounded-2xl p-6 text-center relative overflow-hidden shadow-lg border transition-all duration-300 ${theme.bg} ${theme.border}`}>
+      <div className={`rounded-2xl p-6 text-center relative overflow-hidden shadow-sm border transition-all duration-300 ${theme.bg} ${theme.border}`}>
         {/* Subtle Jersey Fabric Texture Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(#00000010_1px,transparent_1px)] [background-size:8px_8px] pointer-events-none opacity-40"></div>
 
         <div className="relative z-10">
-          <div className="text-[10px] font-black tracking-widest uppercase opacity-60 mb-2">
+          <div className="text-[10px] font-bold tracking-widest uppercase opacity-60 mb-2">
             Aperçu Dos · {theme.name}
           </div>
 
@@ -104,23 +104,23 @@ export function HeroCustomizerWidget() {
             <p className={`text-2xl sm:text-3xl font-black tracking-widest font-display uppercase drop-shadow-sm transition-all duration-300 ${theme.text}`}>
               {name.trim() || "VOTRE NOM"}
             </p>
-            <p className={`text-6xl sm:text-7xl font-black font-display drop-shadow-md leading-none transition-all duration-300 transform hover:scale-105 cursor-default ${theme.numberColor}`}>
+            <p className={`text-6xl sm:text-7xl font-black font-display drop-shadow-sm leading-none transition-all duration-300 transform hover:scale-105 cursor-default ${theme.numberColor}`}>
               {number !== "" ? number : "10"}
             </p>
           </div>
 
-          <p className="text-[10px] opacity-60 font-semibold mt-3">
-            Impression thermo-collée officielle haute tenue lavable à 30°C
+          <p className="text-[10px] opacity-60 font-medium mt-3">
+            Impression officielle haute tenue lavable à 30°C
           </p>
         </div>
       </div>
 
-      {/* CTA Button with Shine */}
+      {/* CTA Button */}
       <Link
         href="/catalogue?category=MAILLOT"
-        className="w-full inline-flex items-center justify-center gap-2 btn-green-action text-xs font-black uppercase tracking-widest py-3.5 rounded-xl text-center shadow-md transition-all"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#0A0F1D] hover:bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl text-center shadow-sm hover:shadow-md transition-all"
       >
-        <span>Choisir ce maillot à floquer 🛍️</span>
+        <span>Choisir ce maillot à floquer →</span>
       </Link>
     </div>
   );
