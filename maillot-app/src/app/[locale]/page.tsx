@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
-import { HeroCustomizerWidget } from "@/components/hero-customizer-widget";
+import { HeroSportShowcase } from "@/components/hero-sport-showcase";
 
 export default async function HomePage() {
   const products = await getAllProducts();
@@ -69,9 +69,9 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Right Column: Interactive Flocage Live Tester Widget */}
+          {/* Right Column: Animated Dynamic Sports Showcase */}
           <div className="lg:col-span-5 w-full">
-            <HeroCustomizerWidget />
+            <HeroSportShowcase />
           </div>
         </div>
       </section>
