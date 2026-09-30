@@ -48,7 +48,7 @@ export function CinematicHeroSlider() {
     if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
+    }, 6500);
     return () => clearInterval(timer);
   }, [isPaused]);
 
@@ -56,44 +56,67 @@ export function CinematicHeroSlider() {
 
   return (
     <section
-      className="relative w-full min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] flex items-end justify-start bg-black text-white overflow-hidden select-none"
+      className="relative w-full min-h-[640px] sm:min-h-[760px] lg:min-h-[850px] flex items-end justify-start bg-black text-white overflow-hidden select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Slides with Cross-Fade */}
-      {HERO_SLIDES.map((item, idx) => (
-        <div
-          key={item.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === current ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
-          }`}
-          style={{ transitionProperty: "opacity, transform", transitionDuration: "1000ms" }}
-        >
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            priority={idx === 0}
-            className="object-cover object-center brightness-75"
-            sizes="100vw"
-          />
-          {/* Cinematic Dark Gradient Overlays (bottom & left shadow for perfect text readability) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-        </div>
-      ))}
+      {/* Background Slides with Slow Cinematic Ken-Burns Zoom & Fade */}
+      {HERO_SLIDES.map((item, idx) => {
+        const isActive = idx === current;
+        return (
+          <div
+            key={item.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              isActive ? "opacity-100 z-0" : "opacity-0 pointer-events-none -z-10"
+            }`}
+          >
+            <div
+              className={`relative w-full h-full transform transition-transform ease-out ${
+                isActive ? "scale-108 duration-[9000ms]" : "scale-100 duration-1000"
+              }`}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                priority={idx === 0}
+                className="object-cover object-center brightness-[0.78] contrast-[1.08]"
+                sizes="100vw"
+              />
+            </div>
 
-      {/* Content Overlay */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 pb-16 sm:pb-20 pt-32">
-        <div className="max-w-2xl text-left space-y-6 animate-pop-in">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-white/15 backdrop-blur-md border border-white/20 text-white text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
+            {/* Cinematic Gradient Overlays for maximum contrast & punch */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
+            
+            {/* Top Atmospheric Radial Glow */}
+            <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+          </div>
+        );
+      })}
+
+      {/* Floating Top-Right Animated Live Badge */}
+      <div className="absolute top-6 right-6 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-3 bg-black/50 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full shadow-2xl animate-fade-in">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span className="text-xs font-black uppercase tracking-wider text-white">
+          Stock Officiel Disponible • Mauritanie
+        </span>
+      </div>
+
+      {/* Main Content Overlay with Staggered Animations */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 pb-16 sm:pb-24 pt-32">
+        <div key={current} className="max-w-2xl text-left space-y-6 animate-pop-in">
+          {/* Animated Category Badge */}
+          <div className="inline-flex items-center gap-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[11px] sm:text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl transition-all">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>{slide.badge}</span>
           </div>
 
-          {/* Big Bold Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase font-display leading-[0.95] text-white whitespace-pre-line drop-shadow-2xl">
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase font-display leading-[0.94] text-white whitespace-pre-line drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
             {slide.title}
           </h1>
 
@@ -103,38 +126,38 @@ export function CinematicHeroSlider() {
           </p>
 
           {/* Action Buttons */}
-          <div className="pt-2 flex flex-wrap gap-4 items-center">
+          <div className="pt-3 flex flex-wrap gap-4 items-center">
             <Link
               href={slide.primaryLink}
-              className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm px-8 py-4 tracking-widest uppercase rounded-xl shadow-2xl transition-all transform hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-[#071A35] hover:text-white font-black text-xs sm:text-sm px-8 py-4 tracking-widest uppercase rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all transform hover:-translate-y-1 active:scale-95 border border-emerald-400/40"
             >
               <span>{slide.primaryLabel}</span>
-              <span className="text-base transition-transform group-hover:translate-x-1">→</span>
+              <span className="text-base transition-transform group-hover:translate-x-1 font-bold">→</span>
             </Link>
             <Link
               href={slide.secondaryLink}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-bold text-xs sm:text-sm px-7 py-4 tracking-wider uppercase rounded-xl transition-all transform hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-bold text-xs sm:text-sm px-7 py-4 tracking-wider uppercase rounded-2xl transition-all transform hover:-translate-y-1 active:scale-95 shadow-lg"
             >
               <span>{slide.secondaryLabel}</span>
             </Link>
           </div>
         </div>
 
-        {/* Bottom Right Slider Progress Controls (Like STACK design) */}
+        {/* Bottom Right Slider Progress Controls */}
         <div className="absolute right-6 sm:right-10 bottom-8 sm:bottom-12 flex items-center gap-3 z-20">
-          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15 shadow-xl">
             {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setCurrent(idx)}
-                className={`h-1 rounded-full transition-all duration-500 ${
-                  current === idx ? "w-8 bg-red-500" : "w-2.5 bg-white/40 hover:bg-white/70"
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  current === idx ? "w-8 bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" : "w-2.5 bg-white/40 hover:bg-white/70"
                 }`}
                 title={`Slide ${idx + 1}`}
               />
             ))}
-            <span className="text-[11px] font-bold text-slate-300 ml-2">
+            <span className="text-[11px] font-black text-slate-300 ml-2 font-display">
               0{current + 1} / 0{HERO_SLIDES.length}
             </span>
           </div>
@@ -143,7 +166,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center text-xs backdrop-blur-md transition-all border border-white/10"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-black text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Précédent"
             >
               ←
@@ -151,7 +174,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev + 1) % HERO_SLIDES.length)}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center text-xs backdrop-blur-md transition-all border border-white/10"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-black text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Suivant"
             >
               →

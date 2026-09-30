@@ -97,16 +97,6 @@ export function ProductCard({ product }: { product: Product }) {
               {product.name}
             </h3>
           </Link>
-
-          {/* Star Ratings */}
-          <div className="flex items-center gap-1.5 mt-1.5">
-            <div className="flex text-amber-400 text-xs tracking-tighter">
-              ★★★★★
-            </div>
-            <span className="text-[10px] font-bold text-slate-600">
-              ({product.reviewCount || 24})
-            </span>
-          </div>
         </div>
 
         {/* Price & Action Section */}

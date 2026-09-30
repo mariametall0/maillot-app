@@ -12,24 +12,36 @@ export default async function HomePage() {
       {/* CINEMATIC HERO BANNER WITH REAL PLAYERS & JERSEYS */}
       <CinematicHeroSlider />
 
-      {/* STATS BANNER */}
-      <section className="bg-[#071A35] text-white py-6 border-b border-[#0A254C]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="space-y-1">
-            <p className="text-2xl sm:text-3xl font-black text-white font-display">+5 000</p>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Maillots Livrés</p>
+      {/* AUTHENTIC SERVICE GUARANTEES */}
+      <section className="bg-[#071A35] text-white py-4 sm:py-5 border-b border-[#0A254C]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="flex items-center justify-center gap-2.5 py-1">
+            <span className="text-xl">🚚</span>
+            <div className="text-left">
+              <p className="text-xs font-black text-white uppercase tracking-wider">Livraison Express</p>
+              <p className="text-[10px] text-slate-300 font-medium">Toutes les wilayas de RIM</p>
+            </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-2xl sm:text-3xl font-black text-white font-display">100%</p>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Qualité Officielle</p>
+          <div className="flex items-center justify-center gap-2.5 py-1">
+            <span className="text-xl">✍️</span>
+            <div className="text-left">
+              <p className="text-xs font-black text-white uppercase tracking-wider">Flocage Officiel</p>
+              <p className="text-[10px] text-slate-300 font-medium">Nom & Numéro au choix</p>
+            </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-2xl sm:text-3xl font-black text-white font-display">Toute la RIM</p>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Livraison Nationale</p>
+          <div className="flex items-center justify-center gap-2.5 py-1">
+            <span className="text-xl">💳</span>
+            <div className="text-left">
+              <p className="text-xs font-black text-white uppercase tracking-wider">Paiement Sécurisé</p>
+              <p className="text-[10px] text-slate-300 font-medium">Bankily, Masrvi, Sedad & Cash</p>
+            </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-2xl sm:text-3xl font-black text-emerald-400 font-display">4.9 / 5</p>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Satisfaction Client</p>
+          <div className="flex items-center justify-center gap-2.5 py-1">
+            <span className="text-xl">🏆</span>
+            <div className="text-left">
+              <p className="text-xs font-black text-emerald-400 uppercase tracking-wider">Qualité Pro</p>
+              <p className="text-[10px] text-slate-300 font-medium">Maillots & Équipements</p>
+            </div>
           </div>
         </div>
       </section>
