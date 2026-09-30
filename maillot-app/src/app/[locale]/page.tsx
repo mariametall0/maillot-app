@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
-import { CinematicHeroSlider } from "@/components/cinematic-hero-slider";
+import { MultiJerseyHero } from "@/components/multi-jersey-hero";
 
 export default async function HomePage() {
   const products = await getAllProducts();
@@ -9,8 +9,8 @@ export default async function HomePage() {
 
   return (
     <div className="bg-white min-h-screen text-[#1F2937] overflow-hidden">
-      {/* FULL-WIDTH CINEMATIC ATHLETIC HERO (STACK STYLE) */}
-      <CinematicHeroSlider />
+      {/* DYNAMIC MULTI-JERSEY HERO SHOWCASE */}
+      <MultiJerseyHero />
 
       {/* STATS BANNER */}
       <section className="bg-[#071A35] text-white py-6 border-b border-[#0A254C]">
