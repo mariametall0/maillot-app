@@ -58,7 +58,7 @@ export default function CustomerRegisterPage() {
             N°10
           </div>
           <h1 className="text-2xl font-black text-[#071A35] uppercase tracking-tight">
-            NUMÉRO <span className="text-[#16A34A]">10</span>
+            NUMÉRO <span className="text-blue-600">10</span>
           </h1>
           <p className="text-sm text-slate-500 font-semibold mt-1">
             Créez votre compte client en 30 secondes
@@ -78,7 +78,7 @@ export default function CustomerRegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ex: Mohamed Ould Ahmed"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
             </div>
 
@@ -93,7 +93,7 @@ export default function CustomerRegisterPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Ex: 22345678"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
               {phone.length > 0 && !phoneValid && (
                 <p className="text-xs text-red-600 mt-1 font-bold">⚠️ Le numéro doit comporter exactement 8 chiffres.</p>
@@ -110,7 +110,7 @@ export default function CustomerRegisterPage() {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="Ex: Nouakchott (Tevragh Zeina), Nouadhibou..."
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
             </div>
 
@@ -124,7 +124,7 @@ export default function CustomerRegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function CustomerRegisterPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
               {confirmPassword.length > 0 && password !== confirmPassword && (
                 <p className="text-xs text-red-600 mt-1 font-bold">⚠️ Les mots de passe ne correspondent pas.</p>
@@ -156,7 +156,7 @@ export default function CustomerRegisterPage() {
               disabled={!canSubmit || loading}
               className={`w-full rounded-2xl text-white font-black text-sm uppercase tracking-wider py-4 shadow-md transition-all ${
                 canSubmit
-                  ? "btn-green-action cursor-pointer"
+                  ? "btn-blue-action cursor-pointer"
                   : "bg-slate-300 text-slate-500 cursor-not-allowed opacity-60"
               }`}
             >
@@ -167,7 +167,7 @@ export default function CustomerRegisterPage() {
           {/* Login link */}
           <div className="text-center pt-6 mt-6 border-t border-slate-200 text-xs text-slate-600">
             Vous avez déjà un compte ?{" "}
-            <Link href="/compte/login" className="font-black text-[#16A34A] hover:underline">
+            <Link href="/compte/login" className="font-black text-blue-600 hover:underline">
               Se connecter
             </Link>
           </div>

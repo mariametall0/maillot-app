@@ -46,7 +46,7 @@ export default function LoginPage() {
             N°10
           </div>
           <h1 className="text-2xl font-black text-[#071A35] uppercase tracking-tight">
-            NUMÉRO <span className="text-[#16A34A]">10</span>
+            NUMÉRO <span className="text-blue-600">10</span>
           </h1>
           <p className="text-sm text-slate-500 font-semibold mt-1">
             Connectez-vous à votre compte client
@@ -67,7 +67,7 @@ export default function LoginPage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Ex: 22345678"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
             </div>
 
@@ -81,7 +81,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-bold outline-none focus:border-blue-600"
               />
             </div>
 
@@ -94,7 +94,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading || phone.length !== 8 || !password}
-              className="w-full rounded-2xl btn-green-action text-white font-black text-sm uppercase tracking-wider py-4 shadow-md transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full rounded-2xl btn-blue-action text-white font-black text-sm uppercase tracking-wider py-4 shadow-md transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {loading ? "Connexion..." : "Se connecter →"}
             </button>
@@ -103,7 +103,7 @@ export default function LoginPage() {
           {/* Inscription link */}
           <div className="text-center pt-6 mt-6 border-t border-slate-200 text-xs text-slate-600">
             Vous n&apos;avez pas encore de compte ?{" "}
-            <Link href="/compte/register" className="font-black text-[#16A34A] hover:underline">
+            <Link href="/compte/register" className="font-black text-blue-600 hover:underline">
               Créer un compte
             </Link>
           </div>

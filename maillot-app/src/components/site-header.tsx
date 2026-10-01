@@ -197,7 +197,7 @@ export function SiteHeader() {
           {/* Account Profile Icon / Connexion Client */}
           <Link
             href={customerName ? "/compte" : "/compte/login"}
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-[#071A35] hover:text-[#16A34A] px-3.5 py-2 rounded-full border border-slate-200 transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-[#071A35] hover:text-blue-600 px-3.5 py-2 rounded-full border border-slate-200 transition-colors"
             title={customerName ? "Mon Compte" : "Connexion"}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -210,7 +210,7 @@ export function SiteHeader() {
           {/* Cart Pill Button 🛒 */}
           <Link
             href="/panier"
-            className="inline-flex items-center gap-2.5 rounded-full bg-[#16A34A] text-white px-5 py-2.5 text-xs sm:text-sm font-black hover:bg-[#15803D] transition-all shadow-md active:scale-95"
+            className="inline-flex items-center gap-2.5 rounded-full bg-blue-600 text-white px-5 py-2.5 text-xs sm:text-sm font-black hover:bg-blue-700 transition-all shadow-md active:scale-95"
           >
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>

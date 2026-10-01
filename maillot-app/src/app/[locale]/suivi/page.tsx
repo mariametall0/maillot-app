@@ -90,7 +90,7 @@ export default function SuiviPage() {
               <div key={o.id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="font-black text-[#071A35]">{o.id}</span>
-                  <span className="text-xs font-black px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#16A34A] border border-[#16A34A]/30 uppercase">
+                  <span className="text-xs font-black px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-200 uppercase">
                     {o.status === "EN_ATTENTE" ? "⏳ En attente" : o.status === "CONFIRMEE" ? "✅ Confirmée" : o.status === "EXPEDIEE" ? "🚚 Expédiée" : o.status === "LIVREE" ? "📦 Livrée" : o.status}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function SuiviPage() {
                   {o.items?.map((item: OrderItem, idx: number) => (
                     <p key={idx} className="text-xs font-bold text-[#1F2937]">
                       • {item.productName} (Taille {item.size}) × {item.quantity}
-                      {item.flocage && <span className="text-[#16A34A]"> — Flocage: {item.flocage}</span>}
+                      {item.flocage && <span className="text-blue-600"> — Flocage: {item.flocage}</span>}
                     </p>
                   ))}
                 </div>

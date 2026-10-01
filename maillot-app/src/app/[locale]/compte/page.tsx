@@ -87,7 +87,7 @@ export default function CustomerAccountPage() {
       {/* Header Profile */}
       <div className="bg-[#071A35] rounded-3xl p-8 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-md mb-8">
         <div>
-          <span className="text-xs font-black uppercase tracking-widest text-[#16A34A] bg-[#16A34A]/10 px-3.5 py-1.5 rounded-full border border-[#16A34A]/20">
+          <span className="text-xs font-black uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-400/20">
             Espace Client
           </span>
           <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mt-3">
@@ -100,7 +100,7 @@ export default function CustomerAccountPage() {
         <div className="flex gap-3">
           <Link
             href="/catalogue"
-            className="rounded-2xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-black uppercase px-5 py-3 transition-all shadow-xs"
+            className="rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase px-5 py-3 transition-all shadow-xs"
           >
             Boutique ⚽
           </Link>
@@ -127,7 +127,7 @@ export default function CustomerAccountPage() {
             <p className="font-bold text-sm">Vous n&apos;avez pas encore passé de commande.</p>
             <Link
               href="/catalogue"
-              className="inline-block rounded-2xl btn-green-action text-white font-black text-xs uppercase px-6 py-3.5 shadow-xs"
+              className="inline-block rounded-2xl btn-blue-action text-white font-black text-xs uppercase px-6 py-3.5 shadow-xs"
             >
               Découvrir les maillots →
             </Link>
@@ -143,7 +143,7 @@ export default function CustomerAccountPage() {
                       Commandé le {new Date(o.createdAt).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
                     </p>
                   </div>
-                  <span className="self-start sm:self-auto text-xs font-black px-3.5 py-1.5 rounded-full bg-[#16A34A]/10 text-[#16A34A] border border-[#16A34A]/30 uppercase">
+                  <span className="self-start sm:self-auto text-xs font-black px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200 uppercase">
                     {STATUS_LABELS[o.status] || o.status}
                   </span>
                 </div>
@@ -155,7 +155,7 @@ export default function CustomerAccountPage() {
                         <span className="font-bold text-[#1F2937]">{item.productName}</span>
                         <span className="text-slate-500 ml-2">Taille {item.size} × {item.quantity}</span>
                         {item.flocage && (
-                          <p className="text-[11px] text-[#16A34A] font-semibold mt-0.5">
+                          <p className="text-[11px] text-blue-600 font-semibold mt-0.5">
                             Flocage officiel : {item.flocage}
                           </p>
                         )}

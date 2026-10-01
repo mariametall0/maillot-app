@@ -156,7 +156,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   key={img.id}
                   onClick={() => setActiveImage(i)}
                   className={`h-20 w-20 rounded-2xl border-2 overflow-hidden transition-all ${
-                    i === activeImage ? "border-[#16A34A] scale-105 shadow-md" : "border-slate-200 opacity-60 hover:opacity-100"
+                    i === activeImage ? "border-blue-600 scale-105 shadow-md" : "border-slate-200 opacity-60 hover:opacity-100"
                   }`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -185,7 +185,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="flex flex-col justify-between space-y-6">
           <div>
             {product.club && (
-              <span className="text-xs font-black uppercase tracking-widest text-[#16A34A] bg-[#16A34A]/10 px-3.5 py-1.5 rounded-full border border-[#16A34A]/20">
+              <span className="text-xs font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
                 {product.club} {product.season && `· ${product.season}`}
               </span>
             )}
@@ -199,7 +199,7 @@ export function ProductDetail({ product }: { product: Product }) {
             <div className="mt-6 flex items-baseline gap-4">
               <span className="text-4xl font-black text-[#071A35] font-display">{formatPrice(total)}</span>
               {personalize && (
-                <span className="text-xs font-black text-[#16A34A] uppercase bg-[#16A34A]/10 px-3 py-1 rounded-lg border border-[#16A34A]/20">
+                <span className="text-xs font-black text-blue-600 uppercase bg-blue-50 px-3 py-1 rounded-lg border border-blue-200">
                   (Flocage officiel inclus +{formatPrice(PERSONALIZATION_FEE)})
                 </span>
               )}
@@ -242,7 +242,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   type="checkbox"
                   checked={personalize}
                   onChange={(e) => setPersonalize(e.target.checked)}
-                  className="w-5 h-5 accent-[#16A34A] rounded cursor-pointer"
+                  className="w-5 h-5 accent-blue-600 rounded cursor-pointer"
                 />
                 <span className="text-sm font-extrabold text-[#071A35]">
                   ✍️ Personnaliser avec Flocage Nom + Numéro (+{formatPrice(PERSONALIZATION_FEE)})
@@ -262,7 +262,7 @@ export function ProductDetail({ product }: { product: Product }) {
                         maxLength={MAX_NAME_LENGTH}
                         onChange={(e) => setName(e.target.value.toUpperCase())}
                         placeholder="Ex : BARRY"
-                        className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-black outline-none focus:border-[#16A34A] uppercase"
+                        className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-black outline-none focus:border-blue-600 uppercase"
                       />
                     </div>
                     <div>
@@ -276,20 +276,20 @@ export function ProductDetail({ product }: { product: Product }) {
                         value={number}
                         onChange={(e) => setNumber(e.target.value)}
                         placeholder="Ex : 10"
-                        className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-black outline-none focus:border-[#16A34A]"
+                        className="w-full rounded-xl bg-white border border-slate-300 text-[#071A35] px-4 py-3 text-sm font-black outline-none focus:border-blue-600"
                       />
                     </div>
                   </div>
 
                   {/* Aperçu Flocage Visuel */}
                   <div className="rounded-2xl bg-[#071A35] p-6 text-center border border-[#0F2D5A] relative overflow-hidden shadow-inner">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[#16A34A] mb-1">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-1">
                       Aperçu Flocage Officiel Dos
                     </p>
                     <p className="font-black tracking-widest text-3xl text-white uppercase font-display">
                       {name.trim() || "VOTRE NOM"}
                     </p>
-                    <p className="font-black text-5xl text-[#16A34A] mt-1 font-display">
+                    <p className="font-black text-5xl text-blue-400 mt-1 font-display">
                       {number !== "" ? number : "10"}
                     </p>
                   </div>
@@ -304,7 +304,7 @@ export function ProductDetail({ product }: { product: Product }) {
               <button
                 onClick={handleAddToCart}
                 disabled={!canAddToCart}
-                className="w-full rounded-2xl btn-green-action text-white font-black text-sm uppercase tracking-wider py-4 shadow-md disabled:opacity-40 disabled:cursor-not-allowed active:scale-98"
+                className="w-full rounded-2xl btn-blue-action text-white font-black text-sm uppercase tracking-wider py-4 shadow-md disabled:opacity-40 disabled:cursor-not-allowed active:scale-98"
               >
                 {variant?.stock === 0 ? "Rupture de stock" : "Ajouter au panier 🛒"}
               </button>
@@ -319,11 +319,11 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
 
             {added && (
-              <div className="flex items-center justify-between rounded-2xl bg-[#16A34A]/10 border border-[#16A34A]/30 p-4 text-xs font-black text-[#16A34A] animate-in fade-in duration-200">
+              <div className="flex items-center justify-between rounded-2xl bg-blue-50 border border-blue-200 p-4 text-xs font-black text-blue-600 animate-in fade-in duration-200">
                 <span>✅ Produit ajouté au panier avec succès !</span>
                 <button
                   onClick={() => router.push("/panier")}
-                  className="underline text-[#071A35] font-black hover:text-[#16A34A]"
+                  className="underline text-[#071A35] font-black hover:text-blue-600"
                 >
                   Voir mon panier →
                 </button>

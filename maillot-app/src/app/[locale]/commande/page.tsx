@@ -121,7 +121,7 @@ export default function CommandePage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-[#16A34A]"
+              className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-blue-600"
               placeholder="Ex: Mohamed Ould Ahmed"
             />
           </div>
@@ -133,7 +133,7 @@ export default function CommandePage() {
               required
               maxLength={8}
               inputMode="numeric"
-              className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-[#16A34A]"
+              className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-blue-600"
               placeholder="Ex: 22345678"
             />
             {phone.length > 0 && !phoneValid && (
@@ -152,7 +152,7 @@ export default function CommandePage() {
                 value={ville}
                 onChange={(e) => setVille(e.target.value)}
                 required
-                className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-[#16A34A] cursor-pointer"
+                className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-blue-600 cursor-pointer"
               >
                 <option value="Nouakchott">Nouakchott</option>
                 <option value="Nouadhibou">Nouadhibou</option>
@@ -176,7 +176,7 @@ export default function CommandePage() {
                 onChange={(e) => setQuartier(e.target.value)}
                 required
                 placeholder="Ex: Tevragh Zeina / Cansado / Centre-ville..."
-                className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-[#16A34A]"
+                className="w-full rounded-xl bg-white border border-slate-300 px-4 py-3 text-sm font-bold text-[#071A35] outline-none focus:border-blue-600"
               />
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function CommandePage() {
                   value={m.value}
                   checked={method === m.value}
                   onChange={() => setMethod(m.value)}
-                  className="accent-[#16A34A] w-4 h-4"
+                  className="accent-blue-600 w-4 h-4"
                 />
                 {m.label}
               </label>
@@ -214,7 +214,7 @@ export default function CommandePage() {
           <div className="flex justify-between text-slate-600 font-medium"><span>Sous-total articles :</span><span>{formatPrice(subtotal)}</span></div>
           <div className="flex justify-between text-slate-600 font-medium"><span>Frais de livraison express (Mauritanie) :</span><span>{formatPrice(DELIVERY_FEE)}</span></div>
           <div className="flex justify-between font-black text-lg text-[#071A35] pt-3 border-t border-slate-100 mt-2">
-            <span>Total TTC :</span><span className="text-[#16A34A]">{formatPrice(total)}</span>
+            <span>Total TTC :</span><span className="text-blue-600">{formatPrice(total)}</span>
           </div>
         </div>
 
@@ -236,7 +236,7 @@ export default function CommandePage() {
           disabled={!canSubmit || submitting}
           className={`w-full rounded-2xl text-white font-black text-sm uppercase tracking-wider py-4 shadow-md transition-all ${
             canSubmit
-              ? "btn-green-action cursor-pointer"
+              ? "btn-blue-action cursor-pointer"
               : "bg-slate-300 text-slate-500 cursor-not-allowed opacity-60"
           }`}
         >

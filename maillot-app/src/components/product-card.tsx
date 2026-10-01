@@ -45,7 +45,7 @@ export function ProductCard({ product }: { product: Product }) {
   const discount = product.discountPercent || (product.originalPrice ? Math.round(((product.originalPrice - product.basePrice) / product.originalPrice) * 100) : null);
 
   return (
-    <div className="numero10-card group flex flex-col justify-between overflow-hidden relative bg-white border border-slate-200 rounded-3xl transition-all duration-300 hover:shadow-xl hover:border-emerald-600">
+    <div className="numero10-card group flex flex-col justify-between overflow-hidden relative bg-white border border-slate-200 rounded-3xl transition-all duration-300 hover:shadow-xl hover:border-blue-600">
       {/* Top Image Container with Light Gray Background */}
       <div className="aspect-square relative bg-[#F3F4F6] overflow-hidden flex items-center justify-center p-4">
         {/* Discount Badge */}
@@ -54,7 +54,7 @@ export function ProductCard({ product }: { product: Product }) {
             -{discount}%
           </div>
         ) : product.personalizable ? (
-          <div className="absolute top-3 left-3 z-10 bg-[#071A35] text-emerald-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-lg tracking-wider border border-emerald-500/30">
+          <div className="absolute top-3 left-3 z-10 bg-[#071A35] text-blue-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-lg tracking-wider border border-blue-500/30">
             ✍️ FLOCAGE
           </div>
         ) : null}
@@ -87,13 +87,13 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3 bg-white">
         <div>
           {/* Category / Subtitle */}
-          <p className="text-[11px] font-extrabold text-[#16A34A] uppercase tracking-wider group-hover:tracking-widest transition-all">
+          <p className="text-[11px] font-extrabold text-blue-600 uppercase tracking-wider group-hover:tracking-widest transition-all">
             {product.club || product.subtype || product.category}
           </p>
 
           {/* Product Name */}
           <Link href={`/produit/${product.id}`}>
-            <h3 className="text-xs sm:text-sm font-black text-[#1F2937] group-hover:text-[#16A34A] transition-colors line-clamp-2 mt-0.5 leading-snug">
+            <h3 className="text-xs sm:text-sm font-black text-[#1F2937] group-hover:text-blue-600 transition-colors line-clamp-2 mt-0.5 leading-snug">
               {product.name}
             </h3>
           </Link>
@@ -113,13 +113,13 @@ export function ProductCard({ product }: { product: Product }) {
             )}
           </div>
 
-          {/* Green Quick Add Button with Pop Animation */}
+          {/* Blue Quick Add Button with Pop Animation */}
           <button
             onClick={handleQuickAdd}
             className={`w-full py-3 px-4 rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
               added
-                ? "bg-[#071A35] text-emerald-400 scale-102 shadow-lg"
-                : "btn-green-action shadow-md active:scale-95"
+                ? "bg-[#071A35] text-blue-400 scale-102 shadow-lg"
+                : "btn-blue-action shadow-md active:scale-95"
             }`}
           >
             <span className={added ? "animate-bounce" : ""}>🛒</span>

@@ -90,7 +90,7 @@ export function CinematicHeroSlider() {
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
             
             {/* Top Atmospheric Radial Glow */}
-            <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
           </div>
         );
       })}
@@ -98,8 +98,8 @@ export function CinematicHeroSlider() {
       {/* Floating Top-Right Animated Live Badge */}
       <div className="absolute top-6 right-6 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-3 bg-black/50 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full shadow-2xl animate-fade-in">
         <span className="relative flex h-2.5 w-2.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
         </span>
         <span className="text-xs font-black uppercase tracking-wider text-white">
           Stock Officiel Disponible • Mauritanie
@@ -111,7 +111,7 @@ export function CinematicHeroSlider() {
         <div key={current} className="max-w-2xl text-left space-y-6 animate-pop-in">
           {/* Animated Category Badge */}
           <div className="inline-flex items-center gap-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[11px] sm:text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl transition-all">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
             <span>{slide.badge}</span>
           </div>
 
@@ -129,7 +129,7 @@ export function CinematicHeroSlider() {
           <div className="pt-3 flex flex-wrap gap-4 items-center">
             <Link
               href={slide.primaryLink}
-              className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-[#071A35] hover:text-white font-black text-xs sm:text-sm px-8 py-4 tracking-widest uppercase rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all transform hover:-translate-y-1 active:scale-95 border border-emerald-400/40"
+              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm px-8 py-4 tracking-widest uppercase rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.45)] transition-all transform hover:-translate-y-1 active:scale-95 border border-blue-400/40"
             >
               <span>{slide.primaryLabel}</span>
               <span className="text-base transition-transform group-hover:translate-x-1 font-bold">→</span>
@@ -152,7 +152,7 @@ export function CinematicHeroSlider() {
                 type="button"
                 onClick={() => setCurrent(idx)}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
-                  current === idx ? "w-8 bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" : "w-2.5 bg-white/40 hover:bg-white/70"
+                  current === idx ? "w-8 bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.9)]" : "w-2.5 bg-white/40 hover:bg-white/70"
                 }`}
                 title={`Slide ${idx + 1}`}
               />
@@ -166,7 +166,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-black text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Précédent"
             >
               ←
@@ -174,7 +174,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev + 1) % HERO_SLIDES.length)}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-black text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Suivant"
             >
               →

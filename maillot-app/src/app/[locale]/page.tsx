@@ -39,7 +39,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-center gap-2.5 py-1">
             <span className="text-xl">🏆</span>
             <div className="text-left">
-              <p className="text-xs font-black text-emerald-400 uppercase tracking-wider">Qualité Pro</p>
+              <p className="text-xs font-black text-blue-400 uppercase tracking-wider">Qualité Pro</p>
               <p className="text-[10px] text-slate-300 font-medium">Maillots & Équipements</p>
             </div>
           </div>
@@ -65,13 +65,13 @@ export default async function HomePage() {
           {/* Category 1: MAILLOTS */}
           <Link
             href="/catalogue?category=MAILLOT"
-            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-slate-800 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
+            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
           >
             <span className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">👕</span>
             <h3 className="text-sm sm:text-base font-black text-[#0A0F1D] uppercase font-display">
               Maillots
             </h3>
-            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-black transition-colors inline-block">
+            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-blue-600 transition-colors inline-block">
               Voir tout →
             </span>
           </Link>
@@ -79,13 +79,13 @@ export default async function HomePage() {
           {/* Category 2: CHAUSSURES */}
           <Link
             href="/catalogue?subtype=CHAUSSURES"
-            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-slate-800 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
+            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
           >
             <span className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">👟</span>
             <h3 className="text-sm sm:text-base font-black text-[#0A0F1D] uppercase font-display">
               Chaussures
             </h3>
-            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-black transition-colors inline-block">
+            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-blue-600 transition-colors inline-block">
               Crampons Pro →
             </span>
           </Link>
@@ -93,13 +93,13 @@ export default async function HomePage() {
           {/* Category 3: BALLONS */}
           <Link
             href="/catalogue?subtype=BALLONS"
-            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-slate-800 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
+            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
           >
             <span className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">⚽</span>
             <h3 className="text-sm sm:text-base font-black text-[#0A0F1D] uppercase font-display">
               Ballons
             </h3>
-            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-black transition-colors inline-block">
+            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-blue-600 transition-colors inline-block">
               Match & Entraînement →
             </span>
           </Link>
@@ -107,13 +107,13 @@ export default async function HomePage() {
           {/* Category 4: GANTS */}
           <Link
             href="/catalogue?subtype=GANTS"
-            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-slate-800 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
+            className="group flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-lg hover:-translate-y-1 text-center"
           >
             <span className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform duration-300 inline-block">🧤</span>
             <h3 className="text-sm sm:text-base font-black text-[#0A0F1D] uppercase font-display">
               Gants
             </h3>
-            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-black transition-colors inline-block">
+            <span className="text-[11px] font-bold text-slate-600 mt-1 group-hover:text-blue-600 transition-colors inline-block">
               Gardiens de But →
             </span>
           </Link>
@@ -153,28 +153,28 @@ export default async function HomePage() {
       {/* TRUST REASSURANCE BAR */}
       <section className="bg-white text-[#1F2937] py-16 px-4 border-t border-slate-200">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-emerald-500 group">
+          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">🚚</div>
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
               Livraison Express
             </h4>
             <p className="text-xs text-slate-500 font-medium">Partout en Mauritanie (toutes les wilayas)</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-emerald-500 group">
+          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">✍️</div>
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
               Flocage Pro
             </h4>
             <p className="text-xs text-slate-500 font-medium">Impression nom & numéro sur-mesure</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-emerald-500 group">
+          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">💳</div>
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
               Paiement Sécurisé
             </h4>
             <p className="text-xs text-slate-500 font-medium">Bankily, Masrvi, Sedad & Cash</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-emerald-500 group">
+          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">📞</div>
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
               Service Client 7j/7

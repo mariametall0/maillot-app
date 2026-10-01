@@ -33,7 +33,7 @@ export default async function CataloguePage({
     <div className="bg-white min-h-screen text-[#1F2937] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="text-left mb-10">
-          <span className="text-xs font-black tracking-widest uppercase text-[#16A34A] bg-[#16A34A]/10 px-4 py-1.5 rounded-full border border-[#16A34A]/20">
+          <span className="text-xs font-black tracking-widest uppercase text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200">
             BOUTIQUE & CATALOGUE OFFICIEL
           </span>
           <h1 className="text-4xl sm:text-6xl font-black text-[#071A35] font-display uppercase tracking-tight mt-3">
@@ -106,7 +106,7 @@ export default async function CataloguePage({
           {hasActiveFilter && (
             <Link
               href="/catalogue"
-              className="text-[#16A34A] hover:text-[#071A35] uppercase tracking-wider underline underline-offset-4 font-black"
+              className="text-blue-600 hover:text-[#071A35] uppercase tracking-wider underline underline-offset-4 font-black"
             >
               Réinitialiser les filtres ✕
             </Link>

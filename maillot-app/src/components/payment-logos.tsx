@@ -2,7 +2,7 @@ import React from "react";
 
 export function BankilyLogo({ className = "w-10 h-10" }: { className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center bg-[#00A651] rounded-xl p-1.5 shadow-md border border-emerald-400/40 shrink-0 ${className}`}>
+    <div className={`relative flex items-center justify-center bg-[#00A651] rounded-xl p-1.5 shadow-md border border-blue-400/40 shrink-0 ${className}`}>
       <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
         {/* Rounded Green App Icon Background with Orange Accent Curve */}
         <rect width="100" height="100" rx="22" fill="#00A651" />
@@ -70,13 +70,13 @@ export function SedadLogo({ className = "w-10 h-10" }: { className?: string }) {
 
 export function CashLogo({ className = "w-10 h-10" }: { className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center bg-[#D97706] rounded-xl p-1.5 shadow-md border border-amber-400/40 shrink-0 ${className}`}>
+    <div className={`relative flex items-center justify-center bg-[#071A35] rounded-xl p-1.5 shadow-md border border-blue-400/40 shrink-0 ${className}`}>
       <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-        <rect width="100" height="100" rx="22" fill="#D97706" />
+        <rect width="100" height="100" rx="22" fill="#071A35" />
         {/* Banknote icon */}
-        <rect x="18" y="30" width="64" height="40" rx="6" fill="#15803D" stroke="white" strokeWidth="4" />
-        <circle cx="50" cy="50" r="10" fill="#FEF08A" stroke="white" strokeWidth="3" />
-        <text x="50" y="55" textAnchor="middle" fill="#15803D" fontSize="14" fontWeight="900">MRU</text>
+        <rect x="18" y="30" width="64" height="40" rx="6" fill="#2563EB" stroke="white" strokeWidth="4" />
+        <circle cx="50" cy="50" r="10" fill="#93C5FD" stroke="white" strokeWidth="3" />
+        <text x="50" y="55" textAnchor="middle" fill="white" fontSize="14" fontWeight="900">MRU</text>
       </svg>
     </div>
   );

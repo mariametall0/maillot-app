@@ -15,9 +15,9 @@ const STATUS_LABELS: Record<OrderStatus, string> = {
 };
 const STATUS_COLORS: Record<OrderStatus, string> = {
   EN_ATTENTE: "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  CONFIRMEE: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  EXPEDIEE: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  LIVREE: "bg-green-500/20 text-green-400 border-green-500/30",
+  CONFIRMEE: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  EXPEDIEE: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
+  LIVREE: "bg-blue-600/20 text-blue-300 border-blue-500/30",
   ANNULEE: "bg-red-500/20 text-red-400 border-red-500/30",
 };
 
@@ -189,10 +189,10 @@ export default function AdminDashboard() {
             <h1 className="text-2xl font-black uppercase tracking-tight mb-8">📊 Tableau de bord</h1>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
               {[
-                { label: "Produits", value: products.length, icon: "🛍️", color: "emerald" },
+                { label: "Produits", value: products.length, icon: "🛍️", color: "blue" },
                 { label: "Commandes", value: orders.length, icon: "📦", color: "blue" },
                 { label: "En attente", value: orders.filter((o) => o.status === "EN_ATTENTE").length, icon: "⏳", color: "amber" },
-                { label: "Livrées", value: orders.filter((o) => o.status === "LIVREE").length, icon: "✅", color: "green" },
+                { label: "Livrées", value: orders.filter((o) => o.status === "LIVREE").length, icon: "✅", color: "blue" },
               ].map((s) => (
                 <div key={s.label} className="bg-[#0D2850] rounded-2xl border border-slate-700 p-6">
                   <div className="text-3xl mb-2">{s.icon}</div>
@@ -202,7 +202,7 @@ export default function AdminDashboard() {
               ))}
             </div>
             <div className="bg-[#0D2850] rounded-2xl border border-slate-700 p-6">
-              <h2 className="font-black uppercase tracking-widest text-emerald-400 text-xs mb-4">Dernières commandes</h2>
+              <h2 className="font-black uppercase tracking-widest text-blue-400 text-xs mb-4">Dernières commandes</h2>
               {orders.length === 0 ? (
                 <p className="text-slate-500 text-sm">Aucune commande pour l&apos;instant.</p>
               ) : (
@@ -230,7 +230,7 @@ export default function AdminDashboard() {
             <div className="flex items-center justify-between mb-8">
               <h1 className="text-2xl font-black uppercase tracking-tight">🛍️ Produits ({products.length})</h1>
               <button onClick={() => { setEditProduct(null); setForm(emptyForm); setPreviewUrl(""); setShowAddProduct(true); }}
-                className="bg-[#16A34A] hover:bg-[#15803D] text-white font-black text-sm uppercase px-6 py-3 rounded-xl transition-all">
+                className="bg-blue-600 hover:bg-blue-700 text-white font-black text-sm uppercase px-6 py-3 rounded-xl transition-all">
                 ➕ Ajouter un produit
               </button>
             </div>
@@ -248,11 +248,11 @@ export default function AdminDashboard() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={p.imageUrl} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                       {p.discountPercent && (
-                        <span className="absolute top-2 left-2 bg-[#16A34A] text-white text-[10px] font-black px-2 py-1 rounded-full">-{p.discountPercent}%</span>
+                        <span className="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-black px-2 py-1 rounded-full">-{p.discountPercent}%</span>
                       )}
                     </div>
                     <div className="p-4">
-                      <p className="text-xs text-emerald-400 font-black uppercase">{p.category}{p.club ? ` · ${p.club}` : ""}</p>
+                      <p className="text-xs text-blue-400 font-black uppercase">{p.category}{p.club ? ` · ${p.club}` : ""}</p>
                       <p className="text-sm font-bold text-white leading-tight mt-0.5 line-clamp-2">{p.name}</p>
                       <p className="text-sm font-black text-white mt-2">{p.basePrice.toLocaleString()} MRU</p>
                       <p className="text-xs text-slate-400 mt-1">Stock : {p.stock}</p>
@@ -301,7 +301,7 @@ export default function AdminDashboard() {
                           {o.items.map((item, i) => (
                             <p key={i} className="text-xs text-slate-300">
                               • {item.productName} — Taille {item.size} × {item.quantity} = {(item.price * item.quantity).toLocaleString()} MRU
-                              {item.flocage && <span className="text-emerald-400"> (Flocage: {item.flocage})</span>}
+                              {item.flocage && <span className="text-blue-400"> (Flocage: {item.flocage})</span>}
                             </p>
                           ))}
                         </div>
@@ -312,7 +312,7 @@ export default function AdminDashboard() {
                         <select
                           value={o.status}
                           onChange={(e) => handleStatusChange(o.id, e.target.value as OrderStatus)}
-                          className="bg-slate-800 border border-slate-700 text-white text-xs font-bold px-3 py-2 rounded-xl outline-none focus:border-emerald-500">
+                          className="bg-slate-800 border border-slate-700 text-white text-xs font-bold px-3 py-2 rounded-xl outline-none focus:border-blue-500">
                           {Object.entries(STATUS_LABELS).map(([k, v]) => (
                             <option key={k} value={k}>{v}</option>
                           ))}
