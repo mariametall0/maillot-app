@@ -2,6 +2,10 @@ import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
 import { CinematicHeroSlider } from "@/components/cinematic-hero-slider";
+import { AnimatedSloganTicker } from "@/components/animated-slogan-ticker";
+import { ClubsScrollMarquee } from "@/components/clubs-scroll-marquee";
+import { InteractiveCustomizerBanner } from "@/components/interactive-customizer-banner";
+import { HowItWorksAnimated } from "@/components/how-it-works-animated";
 
 export default async function HomePage() {
   const products = await getAllProducts();
@@ -9,10 +13,13 @@ export default async function HomePage() {
 
   return (
     <div className="bg-white min-h-screen text-[#1F2937] overflow-hidden">
-      {/* CINEMATIC HERO BANNER WITH REAL PLAYERS & JERSEYS */}
+      {/* 1. CINEMATIC HERO BANNER WITH REAL PLAYERS & JERSEYS */}
       <CinematicHeroSlider />
 
-      {/* AUTHENTIC SERVICE GUARANTEES */}
+      {/* 2. ANIMATED DOUBLE SLOGAN TICKER BANNER */}
+      <AnimatedSloganTicker />
+
+      {/* 3. AUTHENTIC SERVICE GUARANTEES */}
       <section className="bg-[#071A35] text-white py-4 sm:py-5 border-b border-[#0A254C]">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div className="flex items-center justify-center gap-2.5 py-1">
@@ -46,7 +53,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CATEGORIES SECTION - "NOS CATÉGORIES" */}
+      {/* 4. ANIMATED CLUBS SCROLL MARQUEE */}
+      <ClubsScrollMarquee />
+
+      {/* 5. CATEGORIES SECTION - "NOS CATÉGORIES" */}
       <section className="py-16 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12 space-y-2">
           <span className="text-xs font-bold tracking-widest uppercase text-slate-600 bg-slate-100 px-4 py-1.5 rounded-full border border-slate-200">
@@ -120,7 +130,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* POPULAR PRODUCTS SECTION - "PRODUITS POPULAIRES" */}
+      {/* 6. INTERACTIVE CUSTOMIZER BANNER (STUDIO FLOCAGE EN DIRECT) */}
+      <InteractiveCustomizerBanner />
+
+      {/* 7. POPULAR PRODUCTS SECTION - "PRODUITS POPULAIRES" */}
       <section className="bg-slate-50 py-16 sm:py-20 border-t border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
@@ -141,7 +154,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          {/* Product Cards Grid matching user design */}
+          {/* Product Cards Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-7">
             {featured.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -150,36 +163,39 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* TRUST REASSURANCE BAR */}
-      <section className="bg-white text-[#1F2937] py-16 px-4 border-t border-slate-200">
+      {/* 8. ANIMATED HOW IT WORKS SECTION */}
+      <HowItWorksAnimated />
+
+      {/* 9. TRUST REASSURANCE BAR */}
+      <section className="bg-[#071A35] text-white py-16 px-4 border-t border-[#0F2D5A]">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
+          <div className="bg-[#0D2850] p-6 rounded-3xl border border-slate-700 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">🚚</div>
-            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
+            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-white">
               Livraison Express
             </h4>
-            <p className="text-xs text-slate-500 font-medium">Partout en Mauritanie (toutes les wilayas)</p>
+            <p className="text-xs text-slate-300 font-medium">Partout en Mauritanie (toutes les wilayas)</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
+          <div className="bg-[#0D2850] p-6 rounded-3xl border border-slate-700 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">✍️</div>
-            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
+            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-white">
               Flocage Pro
             </h4>
-            <p className="text-xs text-slate-500 font-medium">Impression nom & numéro sur-mesure</p>
+            <p className="text-xs text-slate-300 font-medium">Impression nom & numéro sur-mesure</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
+          <div className="bg-[#0D2850] p-6 rounded-3xl border border-slate-700 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">💳</div>
-            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
+            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-white">
               Paiement Sécurisé
             </h4>
-            <p className="text-xs text-slate-500 font-medium">Bankily, Masrvi, Sedad & Cash</p>
+            <p className="text-xs text-slate-300 font-medium">Bankily, Masrvi, Sedad & Cash</p>
           </div>
-          <div className="bg-[#F3F4F6] p-6 rounded-3xl border border-slate-200 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
+          <div className="bg-[#0D2850] p-6 rounded-3xl border border-slate-700 space-y-2 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group">
             <div className="text-3xl mb-1 group-hover:scale-125 transition-transform duration-300 inline-block">📞</div>
-            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071A35]">
+            <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-white">
               Service Client 7j/7
             </h4>
-            <p className="text-xs text-slate-500 font-medium">Support téléphonique & WhatsApp</p>
+            <p className="text-xs text-slate-300 font-medium">Support téléphonique & WhatsApp</p>
           </div>
         </div>
       </section>
