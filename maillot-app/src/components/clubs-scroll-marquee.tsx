@@ -2,7 +2,15 @@
 
 import { Link } from "@/i18n/navigation";
 
-const CLUBS = [
+interface ClubItem {
+  name: string;
+  flag?: string;
+  image?: string;
+  link: string;
+  tag: string;
+}
+
+const CLUBS: ClubItem[] = [
   { name: "Mauritanie", flag: "🇲🇷", link: "/catalogue?club=Mourabitounes", tag: "Mourabitounes" },
   { name: "Real Madrid", flag: "⚪", link: "/catalogue?club=Real%20Madrid", tag: "La Liga" },
   { name: "FC Barcelone", flag: "🔴🔵", link: "/catalogue?club=FC%20Barcelone", tag: "La Liga" },
@@ -40,9 +48,14 @@ export function ClubsScrollMarquee() {
               href={club.link}
               className="flex items-center gap-2.5 bg-[#F3F4F6] hover:bg-[#071A35] hover:text-white px-4 py-2.5 rounded-2xl border border-slate-200 hover:border-[#071A35] transition-all duration-300 shrink-0 group shadow-xs hover:shadow-md hover:-translate-y-0.5"
             >
-              <span className="text-lg">
-                {club.flag}
-              </span>
+              {club.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={club.image} alt={club.name} className="w-6 h-6 object-contain" />
+              ) : (
+                <span className="text-lg">
+                  {club.flag}
+                </span>
+              )}
               <div className="text-left">
                 <p className="text-xs font-black uppercase text-[#071A35] group-hover:text-white leading-tight">
                   {club.name}
