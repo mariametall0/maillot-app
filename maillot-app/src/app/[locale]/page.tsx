@@ -2,7 +2,6 @@ import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
 import { CinematicHeroSlider } from "@/components/cinematic-hero-slider";
-import { AnimatedSloganTicker } from "@/components/animated-slogan-ticker";
 import { ClubsScrollMarquee } from "@/components/clubs-scroll-marquee";
 import { InteractiveCustomizerBanner } from "@/components/interactive-customizer-banner";
 import { HowItWorksAnimated } from "@/components/how-it-works-animated";
@@ -16,10 +15,7 @@ export default async function HomePage() {
       {/* 1. CINEMATIC HERO BANNER WITH REAL PLAYERS & JERSEYS */}
       <CinematicHeroSlider />
 
-      {/* 2. ANIMATED DOUBLE SLOGAN TICKER BANNER */}
-      <AnimatedSloganTicker />
-
-      {/* 3. AUTHENTIC SERVICE GUARANTEES */}
+      {/* 2. AUTHENTIC SERVICE GUARANTEES */}
       <section className="bg-[#071A35] text-white py-3 sm:py-5 border-b border-[#0A254C]">
         <div className="max-w-7xl mx-auto px-3 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
           <div className="flex items-center justify-center gap-2 sm:gap-2.5 py-1">

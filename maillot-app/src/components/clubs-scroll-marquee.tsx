@@ -15,39 +15,39 @@ const CLUBS = [
 
 export function ClubsScrollMarquee() {
   return (
-    <section className="py-8 bg-white border-b border-slate-200 overflow-hidden">
+    <section className="py-6 sm:py-8 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+          <span className="w-2 h-2 rounded-full bg-blue-600"></span>
           <span className="text-xs font-black uppercase tracking-widest text-[#071A35]">
-            Clubs & Sélections les plus demandés
+            Clubs & Sélections Populaires
           </span>
         </div>
         <Link
           href="/catalogue?category=MAILLOT"
-          className="text-xs font-bold text-blue-600 hover:underline uppercase tracking-wider hidden sm:inline-block"
+          className="text-xs font-bold text-blue-600 hover:underline uppercase tracking-wider"
         >
           Voir tous les clubs →
         </Link>
       </div>
 
-      {/* Scrolling Row */}
-      <div className="flex overflow-hidden py-2">
-        <div className="animate-marquee flex items-center gap-4">
-          {[...CLUBS, ...CLUBS, ...CLUBS].map((club, idx) => (
+      {/* Static / Touch-scrollable Row */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none select-none">
+          {CLUBS.map((club, idx) => (
             <Link
               key={idx}
               href={club.link}
-              className="flex items-center gap-3 bg-[#F3F4F6] hover:bg-blue-600 hover:text-white px-5 py-2.5 rounded-2xl border border-slate-200 hover:border-blue-600 transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-1 shrink-0 group"
+              className="flex items-center gap-2.5 bg-[#F3F4F6] hover:bg-[#071A35] hover:text-white px-4 py-2.5 rounded-2xl border border-slate-200 hover:border-[#071A35] transition-colors shrink-0 group shadow-xs"
             >
-              <span className="text-xl group-hover:scale-125 transition-transform duration-300">
+              <span className="text-lg">
                 {club.flag}
               </span>
               <div className="text-left">
                 <p className="text-xs font-black uppercase text-[#071A35] group-hover:text-white leading-tight">
                   {club.name}
                 </p>
-                <p className="text-[10px] font-bold text-slate-500 group-hover:text-blue-100">
+                <p className="text-[10px] font-bold text-slate-500 group-hover:text-slate-300">
                   {club.tag}
                 </p>
               </div>

@@ -25,7 +25,7 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
-/* Blue Action Button with Shine Effect */
+/* Action Buttons */
 .btn-green-action,
 .btn-blue-action {
   background-color: #2563EB;
@@ -33,44 +33,18 @@ body {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-green-action::after,
-.btn-blue-action::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 40%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    rgba(255, 255, 255, 0) 20%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0) 80%
-  );
-  transform: rotate(25deg);
-  transition: all 0.6s ease;
-}
-
-.btn-green-action:hover::after,
-.btn-blue-action:hover::after {
-  left: 120%;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .btn-green-action:hover,
 .btn-blue-action:hover {
   background-color: #1D4ED8;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 25px -5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.35);
 }
 
 .btn-green-action:active,
 .btn-blue-action:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.98);
 }
 
 .btn-green-outline,
@@ -128,7 +102,7 @@ body {
   border-color: #2563EB;
 }
 
-/* Smooth Badge Pulse */
+/* Static Crisp Promo Badge */
 .badge-promo {
   background-color: #DC2626;
   color: #FFFFFF;
@@ -138,7 +112,6 @@ body {
   padding: 0.25rem 0.6rem;
   border-radius: 0.5rem;
   letter-spacing: 0.05em;
-  animation: pulseGlow 2.5s infinite ease-in-out;
 }
 
 /* KEYFRAME ANIMATIONS */

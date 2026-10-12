@@ -70,11 +70,7 @@ export function CinematicHeroSlider() {
               isActive ? "opacity-100 z-0" : "opacity-0 pointer-events-none -z-10"
             }`}
           >
-            <div
-              className={`relative w-full h-full transform transition-transform ease-out ${
-                isActive ? "scale-108 duration-[9000ms]" : "scale-100 duration-1000"
-              }`}
-            >
+            <div className="relative w-full h-full">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -85,33 +81,30 @@ export function CinematicHeroSlider() {
               />
             </div>
 
-            {/* Cinematic Gradient Overlays for maximum contrast & punch */}
+            {/* Cinematic Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
             
             {/* Top Atmospheric Radial Glow */}
-            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
           </div>
         );
       })}
 
-      {/* Floating Top-Right Animated Live Badge */}
-      <div className="absolute top-4 right-4 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-3 bg-black/50 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full shadow-2xl animate-fade-in">
-        <span className="relative flex h-2.5 w-2.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-        </span>
+      {/* Floating Top-Right Live Badge */}
+      <div className="absolute top-4 right-4 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-2.5 bg-black/60 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-lg">
+        <span className="inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
         <span className="text-xs font-black uppercase tracking-wider text-white">
           Stock Officiel Disponible • Mauritanie
         </span>
       </div>
 
-      {/* Main Content Overlay with Staggered Animations */}
+      {/* Main Content Overlay */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-10 pb-10 sm:pb-20 pt-20 sm:pt-32">
-        <div key={current} className="max-w-2xl text-left space-y-4 sm:space-y-6 animate-pop-in">
-          {/* Animated Category Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-xl transition-all">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        <div key={current} className="max-w-2xl text-left space-y-4 sm:space-y-6">
+          {/* Category Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm transition-colors">
+            <span className="w-2 h-2 rounded-full bg-blue-400"></span>
             <span>{slide.badge}</span>
           </div>
 

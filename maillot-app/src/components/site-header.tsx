@@ -64,31 +64,22 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-colors">
-      {/* Top Banner - Clean, Minimalist & Elegant Ticker Marquee */}
-      <div className="bg-[#0A0F1D] text-slate-200 text-[11px] font-semibold tracking-wider py-2 border-b border-slate-800 overflow-hidden whitespace-nowrap select-none">
-        <div className="animate-marquee flex items-center gap-8">
-          <span className="flex items-center gap-2"><span>⚡</span> <span className="font-bold text-white">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>✍️</span> <span>FLOCAGE OFFICIEL NOM + NUMÉRO SUR-MESURE</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>💳</span> <span>PAIEMENT SÉCURISÉ : BANKILY, MASRVI, SEDAD & CASH</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>🏆</span> <span className="font-bold text-white">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>⚽</span> <span>COLLECTION SAISON 2024 / 2025</span></span>
-          <span className="text-slate-600">•</span>
-          {/* Loop repetition */}
-          <span className="flex items-center gap-2"><span>⚡</span> <span className="font-bold text-white">LIVRAISON PARTOUT EN MAURITANIE</span> (NOUAKCHOTT & TOUTES LES RÉGIONS)</span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>✍️</span> <span>FLOCAGE OFFICIEL NOM + NUMÉRO SUR-MESURE</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>💳</span> <span>PAIEMENT SÉCURISÉ : BANKILY, MASRVI, SEDAD & CASH</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>🏆</span> <span className="font-bold text-white">100% PRODUITS AUTHENTIQUES & QUALITÉ PRO</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="flex items-center gap-2"><span>⚽</span> <span>COLLECTION SAISON 2024 / 2025</span></span>
-          <span className="text-slate-600">•</span>
-        </div>
+      {/* Top Banner - Clean, Static & Elegant Announcement Bar */}
+      <div className="bg-[#0A0F1D] text-slate-200 text-[11px] sm:text-xs font-semibold py-2 px-4 border-b border-slate-800 text-center flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
+        <span className="flex items-center gap-1.5">
+          <span className="text-blue-400">⚡</span>
+          <span className="font-bold text-white">Livraison Express</span> en Mauritanie (Nouakchott & wilayas)
+        </span>
+        <span className="hidden sm:inline text-slate-600">•</span>
+        <span className="hidden sm:flex items-center gap-1.5">
+          <span className="text-blue-400">✍️</span>
+          <span>Flocage Officiel Nom + Numéro</span>
+        </span>
+        <span className="hidden md:inline text-slate-600">•</span>
+        <span className="hidden md:flex items-center gap-1.5">
+          <span className="text-blue-400">💳</span>
+          <span>Bankily, Masrvi, Sedad & Cash</span>
+        </span>
       </div>
 
       <div className="mx-auto max-w-7xl px-3 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
