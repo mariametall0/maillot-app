@@ -56,7 +56,7 @@ export function CinematicHeroSlider() {
 
   return (
     <section
-      className="relative w-full min-h-[640px] sm:min-h-[760px] lg:min-h-[850px] flex items-end justify-start bg-black text-white overflow-hidden select-none"
+      className="relative w-full min-h-[500px] sm:min-h-[680px] lg:min-h-[820px] flex items-end justify-start bg-black text-white overflow-hidden select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -96,7 +96,7 @@ export function CinematicHeroSlider() {
       })}
 
       {/* Floating Top-Right Animated Live Badge */}
-      <div className="absolute top-6 right-6 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-3 bg-black/50 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full shadow-2xl animate-fade-in">
+      <div className="absolute top-4 right-4 sm:top-10 sm:right-10 z-20 hidden md:flex items-center gap-3 bg-black/50 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full shadow-2xl animate-fade-in">
         <span className="relative flex h-2.5 w-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
@@ -107,57 +107,57 @@ export function CinematicHeroSlider() {
       </div>
 
       {/* Main Content Overlay with Staggered Animations */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 pb-16 sm:pb-24 pt-32">
-        <div key={current} className="max-w-2xl text-left space-y-6 animate-pop-in">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-10 pb-10 sm:pb-20 pt-20 sm:pt-32">
+        <div key={current} className="max-w-2xl text-left space-y-4 sm:space-y-6 animate-pop-in">
           {/* Animated Category Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[11px] sm:text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl transition-all">
+          <div className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white text-[10px] sm:text-xs font-black uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-xl transition-all">
             <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
             <span>{slide.badge}</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter uppercase font-display leading-[0.94] text-white whitespace-pre-line drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight sm:tracking-tighter uppercase font-display leading-[1.05] sm:leading-[0.96] text-white whitespace-pre-line drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
             {slide.title}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base lg:text-lg text-slate-200 font-medium leading-relaxed max-w-xl drop-shadow-md">
+          <p className="text-xs sm:text-base lg:text-lg text-slate-200 font-medium leading-relaxed max-w-xl drop-shadow-md">
             {slide.subtitle}
           </p>
 
           {/* Action Buttons */}
-          <div className="pt-3 flex flex-wrap gap-4 items-center">
+          <div className="pt-2 sm:pt-3 flex flex-wrap gap-3 sm:gap-4 items-center">
             <Link
               href={slide.primaryLink}
-              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm px-8 py-4 tracking-widest uppercase rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.45)] transition-all transform hover:-translate-y-1 active:scale-95 border border-blue-400/40"
+              className="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm px-5 sm:px-8 py-3 sm:py-4 tracking-wider sm:tracking-widest uppercase rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.45)] transition-all transform hover:-translate-y-1 active:scale-95 border border-blue-400/40"
             >
               <span>{slide.primaryLabel}</span>
-              <span className="text-base transition-transform group-hover:translate-x-1 font-bold">→</span>
+              <span className="text-base font-bold">→</span>
             </Link>
             <Link
               href={slide.secondaryLink}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-bold text-xs sm:text-sm px-7 py-4 tracking-wider uppercase rounded-2xl transition-all transform hover:-translate-y-1 active:scale-95 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-bold text-xs sm:text-sm px-5 sm:px-7 py-3 sm:py-4 tracking-wider uppercase rounded-2xl transition-all transform hover:-translate-y-1 active:scale-95 shadow-lg"
             >
               <span>{slide.secondaryLabel}</span>
             </Link>
           </div>
         </div>
 
-        {/* Bottom Right Slider Progress Controls */}
-        <div className="absolute right-6 sm:right-10 bottom-8 sm:bottom-12 flex items-center gap-3 z-20">
-          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/15 shadow-xl">
+        {/* Slider Progress Controls */}
+        <div className="mt-8 sm:mt-0 sm:absolute sm:right-10 sm:bottom-12 flex items-center justify-between sm:justify-start gap-3 z-20">
+          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-white/15 shadow-xl">
             {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setCurrent(idx)}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
-                  current === idx ? "w-8 bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.9)]" : "w-2.5 bg-white/40 hover:bg-white/70"
+                  current === idx ? "w-6 sm:w-8 bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.9)]" : "w-2.5 bg-white/40 hover:bg-white/70"
                 }`}
                 title={`Slide ${idx + 1}`}
               />
             ))}
-            <span className="text-[11px] font-black text-slate-300 ml-2 font-display">
+            <span className="text-[10px] sm:text-[11px] font-black text-slate-300 ml-1.5 sm:ml-2 font-display">
               0{current + 1} / 0{HERO_SLIDES.length}
             </span>
           </div>
@@ -166,7 +166,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Précédent"
             >
               ←
@@ -174,7 +174,7 @@ export function CinematicHeroSlider() {
             <button
               type="button"
               onClick={() => setCurrent((prev) => (prev + 1) % HERO_SLIDES.length)}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-white flex items-center justify-center text-sm backdrop-blur-md transition-all border border-white/15 shadow-lg"
               title="Suivant"
             >
               →

@@ -28,27 +28,27 @@ const STEPS = [
 
 export function HowItWorksAnimated() {
   return (
-    <section className="py-20 sm:py-24 px-4 sm:px-8 bg-white relative overflow-hidden border-t border-slate-200">
-      <div className="max-w-7xl mx-auto text-center space-y-16 relative z-10">
+    <section className="py-10 sm:py-20 px-4 sm:px-8 bg-white relative overflow-hidden border-t border-slate-200">
+      <div className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-14 relative z-10">
         {/* Section Header with badge */}
-        <div className="space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs font-black tracking-widest uppercase text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200">
+        <div className="space-y-2.5 max-w-2xl mx-auto">
+          <span className="text-[11px] sm:text-xs font-black tracking-widest uppercase text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
             RAPIDE & SIMPLE
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#071A35] font-display uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black text-[#071A35] font-display uppercase tracking-tight">
             COMMENT ÇA MARCHE ?
           </h2>
-          <p className="text-sm sm:text-base text-slate-500 font-medium">
+          <p className="text-xs sm:text-base text-slate-500 font-medium">
             Commandez votre équipement officiel floqué en seulement 3 étapes simples
           </p>
         </div>
 
         {/* 3 Animated Steps Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-8">
           {STEPS.map((s, idx) => (
             <div
               key={idx}
-              className="relative p-8 rounded-3xl bg-[#F3F4F6] border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-2 group text-left space-y-5"
+              className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F3F4F6] border border-slate-200 hover:border-blue-600 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1.5 group text-left space-y-4"
             >
               {/* Step Number Top-Right */}
               <div className="flex items-center justify-between">

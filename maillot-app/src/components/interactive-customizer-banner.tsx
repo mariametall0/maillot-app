@@ -19,27 +19,27 @@ export function InteractiveCustomizerBanner() {
   const displayNumber = customNumber !== "" ? customNumber : "10";
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-8 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-t border-slate-200">
+    <section className="py-10 sm:py-20 px-4 sm:px-8 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden border-t border-slate-200">
       {/* Dynamic ambient backdrops */}
       <div className="absolute top-1/2 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
       <div className="absolute top-1/2 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-10">
         {/* Left Column: Interactive Inputs & Slogans */}
-        <div className="lg:col-span-6 space-y-6 text-left">
-          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-1.5 rounded-full shadow-xs">
+        <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left">
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full shadow-xs">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
-            <span className="text-xs font-black uppercase tracking-widest text-blue-700">
+            <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-blue-700">
               STUDIO FLOCAGE EN DIRECT
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#071A35] font-display uppercase tracking-tight leading-[1.02]">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071A35] font-display uppercase tracking-tight leading-[1.05]">
             IMPRIME TON NOM. <br />
             <span className="text-blue-600">DEVIENS LA STAR.</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-lg">
+          <p className="text-xs sm:text-base text-slate-600 font-medium leading-relaxed max-w-lg">
             Testez votre flocage officiel en temps réel ! Personnalisez n&apos;importe quel maillot avec vos nom, prénom et numéro de prédilection avec une typographie officielle de haute précision.
           </p>
 

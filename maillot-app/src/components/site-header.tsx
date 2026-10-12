@@ -14,7 +14,14 @@ export function SiteHeader() {
   const pathname = usePathname();
   const router = useRouter();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clickCount, setClickCount] = useState(0);
+
+  // Close menus on navigation
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setSearchOpen(false);
+  }, [pathname]);
 
   // Secret shortcut: Ctrl + Shift + A opens admin login
   useEffect(() => {
@@ -84,26 +91,46 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
-        {/* Left: Brand Logo Halwarkits Sport */}
-        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/logo.png"
-            alt="Halwarkits Sport"
-            className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-110 group-hover:rotate-2 transition-all duration-300 drop-shadow-sm"
-          />
-          <div className="relative flex flex-col">
-            <span className="font-black text-xl sm:text-2xl tracking-tighter text-[#071A35] font-display uppercase leading-tight group-hover:tracking-tight transition-all">
-              HALWARKITS <span className="text-blue-600">SPORT</span>
-            </span>
-            <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 -mt-0.5 hidden sm:block">
-              Votre passion, vos maillots
-            </span>
-          </div>
-        </Link>
+      <div className="mx-auto max-w-7xl px-3 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
+        {/* Left: Mobile Menu Toggle + Brand Logo */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Mobile hamburger button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-xl hover:bg-slate-100 text-[#071A35] transition-colors border border-slate-200 focus:outline-none"
+            aria-label="Menu de navigation"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
 
-        {/* Center: Navigation Links */}
+          {/* Brand Logo Halwarkits Sport */}
+          <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2.5 sm:gap-3 group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.png"
+              alt="Halwarkits Sport"
+              className="w-9 h-9 sm:w-11 sm:h-11 object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-xs"
+            />
+            <div className="flex flex-col justify-center">
+              <span className="font-black text-base sm:text-2xl tracking-tight text-[#071A35] font-display uppercase leading-tight">
+                HALWARKITS <span className="text-blue-600">SPORT</span>
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 hidden sm:block -mt-0.5">
+                Votre passion, vos maillots
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Center: Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1 text-[13px] font-extrabold uppercase tracking-wider text-[#1F2937]">
           <Link
             href="/"
@@ -143,7 +170,7 @@ export function SiteHeader() {
                 : "hover:bg-slate-100 text-slate-800"
             }`}
           >
-            Promotions
+            Flocage Offert
           </Link>
           <Link
             href="/suivi"
@@ -157,9 +184,9 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        {/* Right: Tools, Search, Wishlist, Cart & Account */}
-        <div className="flex items-center gap-3">
-          {/* Language Switcher */}
+        {/* Right: Tools, Search, Cart & Account */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Language Switcher (Desktop) */}
           <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-black text-slate-600 mr-1 bg-[#F3F4F6] px-3 py-1.5 rounded-full border border-slate-200">
             {routing.locales.map((loc, i) => (
               <span key={loc} className="flex items-center gap-1.5">
@@ -180,25 +207,15 @@ export function SiteHeader() {
           {/* Search Button 🔍 */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
-            className="p-2.5 rounded-full hover:bg-slate-100 text-[#071A35] transition-colors border border-slate-200"
+            className="p-2 sm:p-2.5 rounded-full hover:bg-slate-100 text-[#071A35] transition-colors border border-slate-200"
             title="Rechercher"
+            aria-label="Rechercher"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
           </button>
-
-          {/* Wishlist Icon ♡ */}
-          <Link
-            href="/catalogue"
-            className="p-2.5 rounded-full hover:bg-slate-100 text-[#071A35] transition-colors border border-slate-200 hidden sm:flex"
-            title="Favoris"
-          >
-            <svg className="w-5 h-5 text-slate-700 hover:text-red-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </Link>
 
           {/* Account Profile Icon / Connexion Client */}
           <Link
@@ -216,22 +233,100 @@ export function SiteHeader() {
           {/* Cart Pill Button 🛒 */}
           <Link
             href="/panier"
-            className="inline-flex items-center gap-2.5 rounded-full bg-blue-600 text-white px-5 py-2.5 text-xs sm:text-sm font-black hover:bg-blue-700 transition-all shadow-md active:scale-95"
+            className="inline-flex items-center gap-2 rounded-full bg-blue-600 text-white px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-black hover:bg-blue-700 transition-all shadow-md active:scale-95"
+            aria-label="Voir mon panier"
           >
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
-            <span>Panier</span>
+            <span className="hidden xs:inline">Panier</span>
             {itemCount > 0 && (
-              <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#071A35] text-white px-1.5 text-xs font-black ml-0.5">
+              <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#071A35] text-white px-1.5 text-xs font-black">
                 {itemCount}
               </span>
             )}
           </Link>
         </div>
       </div>
+
+      {/* Mobile Navigation Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-slate-200 shadow-xl animate-in slide-in-from-top-2 duration-200 px-4 py-5 space-y-4">
+          <nav className="flex flex-col space-y-1.5 text-sm font-black uppercase tracking-wider text-[#071A35]">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`px-4 py-2.5 rounded-xl transition-colors ${
+                pathname === "/" ? "bg-[#071A35] text-white" : "hover:bg-slate-100"
+              }`}
+            >
+              🏠 Accueil
+            </Link>
+            <Link
+              href="/catalogue"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`px-4 py-2.5 rounded-xl transition-colors ${
+                pathname === "/catalogue" ? "bg-[#071A35] text-white" : "hover:bg-slate-100"
+              }`}
+            >
+              ⚽ Boutique Complète
+            </Link>
+            <Link
+              href="/catalogue?category=MAILLOT"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
+            >
+              👕 Maillots Officiels
+            </Link>
+            <Link
+              href="/catalogue?flocage=true"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl hover:bg-slate-100 transition-colors text-blue-600"
+            >
+              ✍️ Flocage Sur-Mesure
+            </Link>
+            <Link
+              href="/suivi"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl hover:bg-slate-100 transition-colors"
+            >
+              📦 Suivi de Commande
+            </Link>
+          </nav>
+
+          {/* Mobile User Profile & Languages */}
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-3">
+            <Link
+              href={customerName ? "/compte" : "/compte/login"}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-[#071A35] font-black text-xs uppercase tracking-wider py-2.5 rounded-xl transition-colors"
+            >
+              <span>👤</span>
+              <span>{customerName ? `Mon Compte (${customerName})` : "Connexion Client"}</span>
+            </Link>
+
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center justify-center gap-3 text-xs font-black text-slate-600 bg-slate-50 py-2 rounded-xl">
+              <span className="text-[11px] text-slate-400 uppercase">Langue :</span>
+              {routing.locales.map((loc) => (
+                <Link
+                  key={loc}
+                  href={pathname}
+                  locale={loc}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-2.5 py-1 rounded-md transition-colors ${
+                    loc === locale ? "bg-[#071A35] text-white" : "text-slate-700 hover:text-black"
+                  }`}
+                >
+                  {LOCALE_LABELS[loc]}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Quick Search Drawer */}
       {searchOpen && (
