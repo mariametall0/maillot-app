@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { CartProvider } from "@/lib/cart-context";
 import { SiteHeader } from "@/components/site-header";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 
 const geistSans = Geist({
@@ -60,6 +61,8 @@ export default async function LocaleLayout({
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/images/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
       </head>
       <body className="min-h-full flex flex-col bg-white text-[#111111] selection:bg-black selection:text-white">
         <NextIntlClientProvider>
@@ -142,6 +145,7 @@ export default async function LocaleLayout({
                 </p>
               </div>
             </footer>
+            <WhatsAppButton />
           </CartProvider>
         </NextIntlClientProvider>
       </body>
