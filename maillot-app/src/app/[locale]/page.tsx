@@ -2,7 +2,6 @@ import { Link } from "@/i18n/navigation";
 import { getAllProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
 import { CinematicHeroSlider } from "@/components/cinematic-hero-slider";
-import { ClubsScrollMarquee } from "@/components/clubs-scroll-marquee";
 import { InteractiveCustomizerBanner } from "@/components/interactive-customizer-banner";
 import { HowItWorksAnimated } from "@/components/how-it-works-animated";
 
@@ -49,10 +48,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 4. ANIMATED CLUBS SCROLL MARQUEE */}
-      <ClubsScrollMarquee />
-
-      {/* 5. CATEGORIES SECTION - "NOS CATÉGORIES" */}
+      {/* 3. CATEGORIES SECTION - "NOS CATÉGORIES" */}
       <section className="py-10 sm:py-16 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 space-y-2">
           <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
