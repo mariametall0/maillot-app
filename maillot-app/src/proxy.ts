@@ -1,7 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAdminSession } from "./lib/admin-auth";
+import { verifyAdminSession, COOKIE_NAME } from "./lib/admin-auth";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -13,7 +13,7 @@ export default async function middleware(req: NextRequest) {
   const isAdminLoginPage = /^\/[a-z]{2}\/admin\/login/.test(pathname);
 
   if (isAdminRoute && !isAdminLoginPage) {
-    const token = req.cookies.get("footzone_admin_session")?.value;
+    const token = req.cookies.get(COOKIE_NAME)?.value;
     const isValid = token ? await verifyAdminSession(token) : false;
 
     if (!isValid) {

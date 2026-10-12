@@ -42,3 +42,26 @@ export function recordFailedAttempt(ip: string): void {
 export function clearAttempts(ip: string): void {
   attempts.delete(ip);
 }
+
+// Rate limiter pour les créations de commandes (anti-spam bot)
+// Max 10 commandes par IP toutes les 10 minutes
+const orderAttempts = new Map<string, { count: number; firstAttempt: number }>();
+const MAX_ORDERS = 10;
+const ORDER_WINDOW_MS = 10 * 60 * 1000;
+
+export function checkOrderRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = orderAttempts.get(ip);
+
+  if (!record || now - record.firstAttempt > ORDER_WINDOW_MS) {
+    orderAttempts.set(ip, { count: 1, firstAttempt: now });
+    return true;
+  }
+
+  if (record.count >= MAX_ORDERS) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}

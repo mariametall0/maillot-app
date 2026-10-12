@@ -2,10 +2,16 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { findCustomerById, type Customer } from "./customer-data";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.CUSTOMER_JWT_SECRET || "footzone-customer-secret-key-2026-auth-jwt"
+import crypto from "crypto";
+
+function getSecretKey(rawSecret: string): Uint8Array {
+  return crypto.createHash("sha256").update(rawSecret).digest();
+}
+
+const JWT_SECRET = getSecretKey(
+  process.env.CUSTOMER_JWT_SECRET || "halwarkits-sport-secure-customer-auth-salt-2026-mr"
 );
-const CUSTOMER_COOKIE_NAME = "footzone_customer_session";
+const CUSTOMER_COOKIE_NAME = "halwarkits_customer_session";
 const CUSTOMER_SESSION_DURATION = 30 * 24 * 60 * 60; // 30 jours en secondes
 
 export async function createCustomerSession(customerId: string) {

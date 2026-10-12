@@ -1,10 +1,16 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.ADMIN_JWT_SECRET || "footzone-fallback-secret-key-change-me"
+import crypto from "crypto";
+
+function getSecretKey(rawSecret: string): Uint8Array {
+  return crypto.createHash("sha256").update(rawSecret).digest();
+}
+
+const JWT_SECRET = getSecretKey(
+  process.env.ADMIN_JWT_SECRET || "halwarkits-sport-secure-admin-session-salt-2026-mr"
 );
-const COOKIE_NAME = "footzone_admin_session";
+const COOKIE_NAME = "halwarkits_admin_session";
 const SESSION_DURATION = 8 * 60 * 60; // 8 heures en secondes
 
 export async function createAdminSession() {
