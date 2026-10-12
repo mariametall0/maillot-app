@@ -73,11 +73,16 @@ export default async function LocaleLayout({
               <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-14 text-left">
                 {/* Column 1: Brand & Bio */}
                 <div className="space-y-4">
-                  <span className="font-black text-2xl tracking-tight text-white uppercase font-display flex items-center gap-2.5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/logo.png" alt="Halwarkits Sport" className="w-8 h-8 object-contain" />
-                    <span>HALWARKITS <span className="text-blue-400">SPORT</span></span>
-                  </span>
+                  <div>
+                    <span className="font-black text-2xl tracking-tight text-white uppercase font-display flex items-center gap-2.5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/images/logo.png" alt="Halwarkits Sport" className="w-8 h-8 object-contain" />
+                      <span>HALWARKITS <span className="text-blue-400">SPORT</span></span>
+                    </span>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-blue-400 mt-1.5">
+                      Votre passion, vos maillots
+                    </p>
+                  </div>
                   <p className="text-xs text-slate-300 leading-relaxed font-sans font-medium">
                     La boutique officielle de référence en Mauritanie pour vos maillots de football de grands clubs, crampons professionnels, ballons, gants et flocage officiel nom + numéro. Livraison express dans tout le pays.
                   </p>
@@ -139,7 +144,7 @@ export default async function LocaleLayout({
                 </div>
               </div>
               <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-                <p>© 2026 HALWARKITS SPORT — Vente & Flocage de Maillots en Mauritanie. Tous droits réservés.</p>
+                <p>© 2026 HALWARKITS SPORT — Votre passion, vos maillots. Tous droits réservés.</p>
                 <p className="text-[11px] font-semibold text-blue-400">
                   Livraison à Nouakchott, Nouadhibou & toutes les wilayas
                 </p>

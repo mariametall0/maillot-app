@@ -119,14 +119,9 @@ export function SiteHeader() {
               alt="Halwarkits Sport"
               className="w-9 h-9 sm:w-11 sm:h-11 object-contain group-hover:scale-105 transition-all duration-300 drop-shadow-xs"
             />
-            <div className="flex flex-col justify-center">
-              <span className="font-black text-base sm:text-2xl tracking-tight text-[#071A35] font-display uppercase leading-tight">
-                HALWARKITS <span className="text-blue-600">SPORT</span>
-              </span>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 hidden sm:block -mt-0.5">
-                Votre passion, vos maillots
-              </span>
-            </div>
+            <span className="font-black text-lg sm:text-2xl tracking-tight text-[#071A35] font-display uppercase leading-tight">
+              HALWARKITS <span className="text-blue-600">SPORT</span>
+            </span>
           </Link>
         </div>
 
