@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NUMÉRO 10 — Jerseys & sports equipment in Mauritania",
+    "title": "HALWARKITS SPORT — Jerseys & sports equipment in Mauritania",
     "description": "Custom club jerseys (official name/number printing) and sports equipment, delivered across Mauritania."
   },
   "Nav": {
@@ -121,6 +121,6 @@
     "ordersEmpty": "No orders yet — the order list (with status filters, status changes, payment view and stats) will be wired up once the Supabase database is connected."
   },
   "Footer": {
-    "tagline": "NUMÉRO 10 — Delivery across Mauritania"
+    "tagline": "HALWARKITS SPORT — Delivery across Mauritania"
   }
 }

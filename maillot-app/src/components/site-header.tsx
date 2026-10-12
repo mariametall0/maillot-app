@@ -85,14 +85,20 @@ export function SiteHeader() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
-        {/* Left: Brand Logo NUMÉRO 10 */}
+        {/* Left: Brand Logo Halwarkits Sport */}
         <Link href="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-[#0A0F1D] flex items-center justify-center text-white font-black text-sm tracking-tighter shadow-sm border border-slate-700 group-hover:scale-105 transition-transform">
-            N°10
-          </div>
-          <div className="relative flex items-center">
-            <span className="font-black text-2xl sm:text-3xl tracking-tighter text-[#0A0F1D] font-display uppercase group-hover:tracking-tight transition-all">
-              NUMÉRO <span className="text-slate-700">10</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Halwarkits Sport"
+            className="w-11 h-11 sm:w-12 sm:h-12 object-contain group-hover:scale-110 group-hover:rotate-2 transition-all duration-300 drop-shadow-sm"
+          />
+          <div className="relative flex flex-col">
+            <span className="font-black text-xl sm:text-2xl tracking-tighter text-[#071A35] font-display uppercase leading-tight group-hover:tracking-tight transition-all">
+              HALWARKITS <span className="text-blue-600">SPORT</span>
+            </span>
+            <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 -mt-0.5 hidden sm:block">
+              Votre passion, vos maillots
             </span>
           </div>
         </Link>

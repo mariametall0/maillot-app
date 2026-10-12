@@ -54,11 +54,14 @@ export default function CustomerRegisterPage() {
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-12 h-12 mx-auto mb-2 rounded-xl bg-[#071A35] text-white flex items-center justify-center font-black text-lg">
-            N°10
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Halwarkits Sport"
+            className="w-14 h-14 mx-auto mb-3 object-contain drop-shadow-sm"
+          />
           <h1 className="text-2xl font-black text-[#071A35] uppercase tracking-tight">
-            NUMÉRO <span className="text-blue-600">10</span>
+            HALWARKITS <span className="text-blue-600">SPORT</span>
           </h1>
           <p className="text-sm text-slate-500 font-semibold mt-1">
             Créez votre compte client en 30 secondes

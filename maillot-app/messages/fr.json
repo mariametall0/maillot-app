@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NUMÉRO 10 — Maillots & équipements de sport en Mauritanie",
+    "title": "HALWARKITS SPORT — Maillots & équipements de sport en Mauritanie",
     "description": "Vente de maillots de clubs personnalisables (flocage officiel) et équipements de sport avec livraison partout en Mauritanie."
   },
   "Nav": {
@@ -121,6 +121,6 @@
     "ordersEmpty": "Aucune commande pour l'instant — la liste des commandes (avec filtres par statut, changement de statut, vue des paiements et statistiques) sera branchée une fois la base de données Supabase connectée."
   },
   "Footer": {
-    "tagline": "NUMÉRO 10 — Vente & Flocage partout en Mauritanie"
+    "tagline": "HALWARKITS SPORT — Vente & Flocage partout en Mauritanie"
   }
 }

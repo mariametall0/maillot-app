@@ -71,8 +71,9 @@ export default async function LocaleLayout({
                 {/* Column 1: Brand & Bio */}
                 <div className="space-y-4">
                   <span className="font-black text-2xl tracking-tight text-white uppercase font-display flex items-center gap-2.5">
-                    <span className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-black">N°10</span>
-                    <span>NUMÉRO <span className="text-blue-400">10</span></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logo.png" alt="Halwarkits Sport" className="w-8 h-8 object-contain" />
+                    <span>HALWARKITS <span className="text-blue-400">SPORT</span></span>
                   </span>
                   <p className="text-xs text-slate-300 leading-relaxed font-sans font-medium">
                     La boutique officielle de référence en Mauritanie pour vos maillots de football de grands clubs, crampons professionnels, ballons, gants et flocage officiel nom + numéro. Livraison express dans tout le pays.
@@ -135,7 +136,7 @@ export default async function LocaleLayout({
                 </div>
               </div>
               <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-                <p>© 2026 NUMÉRO 10 — Vente & Flocage de Maillots en Mauritanie. Tous droits réservés.</p>
+                <p>© 2026 HALWARKITS SPORT — Vente & Flocage de Maillots en Mauritanie. Tous droits réservés.</p>
                 <p className="text-[11px] font-semibold text-blue-400">
                   Livraison à Nouakchott, Nouadhibou & toutes les wilayas
                 </p>

@@ -39,11 +39,14 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-12 h-12 mx-auto mb-2 rounded-xl bg-[#0D2850] border border-blue-500/40 text-white flex items-center justify-center font-black text-lg">
-            N°10
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Halwarkits Sport"
+            className="w-14 h-14 mx-auto mb-3 object-contain drop-shadow-md"
+          />
           <h1 className="text-2xl font-black text-white uppercase tracking-tight">
-            NUMÉRO <span className="text-blue-400">10</span>
+            HALWARKITS <span className="text-blue-400">SPORT</span>
           </h1>
           <p className="text-xs text-slate-400 font-semibold mt-1 uppercase tracking-widest">
             Espace Administrateur

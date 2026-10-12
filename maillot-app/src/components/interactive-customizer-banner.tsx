@@ -15,7 +15,7 @@ export function InteractiveCustomizerBanner() {
   const [customName, setCustomName] = useState("VOTRE NOM");
   const [customNumber, setCustomNumber] = useState("10");
 
-  const displayName = customName.trim().toUpperCase() || "NUMÉRO 10";
+  const displayName = customName.trim().toUpperCase() || "HALWARKITS";
   const displayNumber = customNumber !== "" ? customNumber : "10";
 
   return (
@@ -119,7 +119,7 @@ export function InteractiveCustomizerBanner() {
               <span className="text-[10px] font-black uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-400/20">
                 🇲🇷 FLOCAGE PRO OFFICIEL
               </span>
-              <span className="text-xs font-black text-slate-300">NUMÉRO 10</span>
+              <span className="text-xs font-black text-slate-300">HALWARKITS SPORT</span>
             </div>
 
             {/* Visual Jersey Back Simulation */}
