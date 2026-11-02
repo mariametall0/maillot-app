@@ -3,9 +3,9 @@ import { getAdminSession } from "@/lib/admin-auth";
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "rttu9zxy",
-  api_key: process.env.CLOUDINARY_API_KEY || "396991922152396",
-  api_secret: process.env.CLOUDINARY_API_SECRET || "Hjst0xw7ImNMNM78RYBxqrlLXIA",
+  cloud_name: "rttu9zxy",
+  api_key: "396991922152396",
+  api_secret: "Hjst0xw7ImNMNM78RYBxqrlLXIA",
 });
 
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
