@@ -56,10 +56,11 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ url: result.secure_url });
-  } catch (err) {
-    console.error("Cloudinary upload error:", err);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : JSON.stringify(err);
+    console.error("Cloudinary upload error:", message);
     return NextResponse.json(
-      { error: "Erreur lors de l'upload. Vérifiez la configuration Cloudinary." },
+      { error: `Cloudinary: ${message}` },
       { status: 500 }
     );
   }
