@@ -69,9 +69,9 @@ export async function getAllProducts(): Promise<Product[]> {
         club: ap.club,
         season: ap.season,
         name: ap.name,
-        description: ap.category === "MAILLOT"
+        description: ap.description || (ap.category === "MAILLOT"
           ? `Maillot officiel ${ap.name}. Tissu haute performance. Flocage disponible.`
-          : `${ap.name} haute performance.`,
+          : `${ap.name} haute performance.`),
         basePrice: ap.basePrice,
         originalPrice: ap.originalPrice,
         discountPercent: ap.discountPercent,
