@@ -125,6 +125,24 @@ const INITIAL_PRODUCTS: AdminProduct[] = [
     active: true,
     createdAt: "2026-11-02T16:00:00.000Z",
   },
+  {
+    id: "maillot-benfica-special-gris-rouge",
+    name: "Maillot spécial Benfica - Gris à Motifs et Rouge",
+    category: "MAILLOT",
+    club: "Benfica",
+    season: "2024/2025",
+    description: "Maillot de football du Benfica à fond gris clair doté d'un motif damassé/baroque ton sur ton, contrasté par un col polo, des bordures de manches et des logos rouges, incluant le sponsor « Emirates Fly Better ».",
+    basePrice: 4500,
+    originalPrice: 5500,
+    discountPercent: 18,
+    personalizable: true,
+    imageUrl: "/images/products/benfica_third_grey.jpg",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizeType: "taille",
+    stock: 30,
+    active: true,
+    createdAt: "2026-11-02T16:25:00.000Z",
+  },
 ];
 
 export function readProducts(): AdminProduct[] {
