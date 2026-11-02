@@ -143,6 +143,24 @@ const INITIAL_PRODUCTS: AdminProduct[] = [
     active: true,
     createdAt: "2026-11-02T16:25:00.000Z",
   },
+  {
+    id: "maillot-barca-domicile-2025",
+    name: "FC Barcelone – Maillot Domicile 2024/2025",
+    category: "MAILLOT",
+    club: "FC Barcelona",
+    season: "2024/2025",
+    description: "Maillot domicile officiel FC Barcelone aux rayures verticales bleu royal et grenat Blaugrana, 4 étoiles, écusson du Barça, logo Nike et sponsor Spotify au centre.",
+    basePrice: 4500,
+    originalPrice: 5500,
+    discountPercent: 18,
+    personalizable: true,
+    imageUrl: "/images/products/barca_home_mannequin.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizeType: "taille",
+    stock: 40,
+    active: true,
+    createdAt: "2026-11-02T16:30:00.000Z",
+  },
 ];
 
 export function readProducts(): AdminProduct[] {
