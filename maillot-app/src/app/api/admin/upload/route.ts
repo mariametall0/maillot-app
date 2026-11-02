@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminSession } from "@/lib/admin-auth";
-import { writeFile } from "fs/promises";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
-const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 
 export async function POST(req: NextRequest) {
   if (!(await getAdminSession())) {
@@ -21,7 +26,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Aucun fichier reçu." }, { status: 400 });
   }
 
-  // Vérification type MIME
   if (!ALLOWED_TYPES.includes(file.type)) {
     return NextResponse.json(
       { error: "Type de fichier non autorisé. Utilisez JPG, PNG ou WebP." },
@@ -29,21 +33,34 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Vérification taille
   if (file.size > MAX_SIZE) {
     return NextResponse.json(
-      { error: "Fichier trop grand. Maximum 5 MB." },
+      { error: "Fichier trop grand. Maximum 10 MB." },
       { status: 400 }
     );
   }
 
-  // Générer un nom de fichier unique et sécurisé
-  const ext = file.type === "image/webp" ? "webp" : file.type === "image/png" ? "png" : "jpg";
-  const filename = `product-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-  const savePath = path.join(process.cwd(), "public", "images", "products", filename);
+  try {
+    // Convertir le fichier en buffer base64 pour Cloudinary
+    const arrayBuffer = await file.arrayBuffer();
+    const base64 = Buffer.from(arrayBuffer).toString("base64");
+    const dataUri = `data:${file.type};base64,${base64}`;
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(savePath, buffer);
+    // Upload vers Cloudinary dans le dossier "maillots"
+    const result = await cloudinary.uploader.upload(dataUri, {
+      folder: "maillots",
+      transformation: [
+        { quality: "auto:good" },
+        { fetch_format: "auto" },
+      ],
+    });
 
-  return NextResponse.json({ url: `/images/products/${filename}` });
+    return NextResponse.json({ url: result.secure_url });
+  } catch (err) {
+    console.error("Cloudinary upload error:", err);
+    return NextResponse.json(
+      { error: "Erreur lors de l'upload. Vérifiez la configuration Cloudinary." },
+      { status: 500 }
+    );
+  }
 }
