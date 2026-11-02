@@ -268,5 +268,23 @@
     "stock": 35,
     "active": true,
     "createdAt": "2026-11-02T21:25:00.000Z"
+  },
+  {
+    "id": "maillot-chelsea-away-white-gold",
+    "name": "Chelsea FC – Maillot Extérieur Blanc & Or",
+    "category": "MAILLOT",
+    "club": "Chelsea FC",
+    "season": "2024/2025",
+    "description": "Élégant maillot extérieur Chelsea FC blanc cassé épuré sublimé de finitions dorées et bordeaux sur le col et les manches, écusson du club, swoosh Nike et badge officiel FIFA World Champions doré.",
+    "basePrice": 4500,
+    "originalPrice": 5500,
+    "discountPercent": 18,
+    "personalizable": true,
+    "imageUrl": "/images/products/chelsea_away_white_gold.jpg",
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "sizeType": "taille",
+    "stock": 30,
+    "active": true,
+    "createdAt": "2026-11-02T21:27:00.000Z"
   }
 ]
