@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminSession } from "@/lib/admin-auth";
 import { readProducts, addProduct, updateProduct, deleteProduct } from "@/lib/admin-data";
 
+export const dynamic = "force-dynamic";
+
 // GET — liste tous les produits
 export async function GET() {
   if (!(await getAdminSession())) {

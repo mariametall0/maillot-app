@@ -6,6 +6,8 @@ import { ClubsScrollMarquee } from "@/components/clubs-scroll-marquee";
 import { InteractiveCustomizerBanner } from "@/components/interactive-customizer-banner";
 import { HowItWorksAnimated } from "@/components/how-it-works-animated";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const products = await getAllProducts();
   const featured = products.slice(0, 8);
@@ -151,11 +153,23 @@ export default async function HomePage() {
           </div>
 
           {/* Product Cards Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-            {featured.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {featured.length === 0 ? (
+            <div className="text-center py-16 px-4 bg-white rounded-3xl border border-slate-200">
+              <span className="text-4xl">📦</span>
+              <h3 className="text-lg font-black text-[#0A0F1D] uppercase mt-2 font-display">
+                Catalogue en cours de réapprovisionnement
+              </h3>
+              <p className="text-xs text-slate-500 font-medium mt-1">
+                Les nouveaux maillots et équipements arrivent très bientôt !
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+              {featured.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
