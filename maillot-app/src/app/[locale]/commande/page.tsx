@@ -7,7 +7,7 @@ import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/format";
 import type { PaymentMethod } from "@/lib/types";
 
-const DELIVERY_FEE = 1000; // Nouakchott uniquement — à valider (voir SPEC.md §8)
+const DELIVERY_FEE = 100; // Frais de livraison (100 MRU / 1 000 MRO)
 
 export default function CommandePage() {
   const router = useRouter();

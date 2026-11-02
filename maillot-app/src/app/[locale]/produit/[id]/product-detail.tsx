@@ -112,7 +112,7 @@ export function ProductDetail({ product }: { product: Product }) {
               flocage: personalize ? `${name.trim()} #${number}` : undefined,
             },
           ],
-          totalAmount: total + 1000, // + livraison
+          totalAmount: total + 100, // + 100 MRU livraison
         }),
       });
 
@@ -454,7 +454,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   {ordering
                     ? "Validation en cours..."
                     : canSubmitQuickOrder
-                    ? `Confirmer & Valider ma commande (${formatPrice(total + 1000)}) →`
+                    ? `Confirmer & Valider ma commande (${formatPrice(total + 100)}) →`
                     : "🔒 Remplir tous les champs pour commander"}
                 </button>
               </form>
